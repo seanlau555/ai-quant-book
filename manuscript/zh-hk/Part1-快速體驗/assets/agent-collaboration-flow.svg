@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 480">
+  <defs>
+    <style>
+      .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: start; letter-spacing: 0.3px; }
+      .box-text { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: start; }
+      .step-num { font: 700 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #fff; text-anchor: middle; }
+      .title { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; letter-spacing: 1px; }
+      .content { font: 400 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #444; text-anchor: start; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+  </defs>
+
+  <!-- White background -->
+  <rect width="650" height="480" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="325" y="25" class="title" text-anchor="middle">AGENT COLLABORATION FLOW</text>
+
+  <!-- Input query -->
+  <rect x="40" y="45" width="570" height="30" fill="#f1f5f9" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="55" y="65" class="content">"分析 Apple 近一週走勢，識別支撐位和阻力位"</text>
+
+  <!-- Step 1: Understand Agent -->
+  <circle cx="55" cy="105" r="14" fill="#3b82f6"/>
+  <text x="55" y="110" class="step-num">1</text>
+  <rect x="80" y="85" width="530" height="55" fill="#dbeafe" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="95" y="105" class="box-text">Understand Agent</text>
+  <text x="95" y="125" class="content">"用户想了解 Apple 的短期技術分析，需要價格數據和形態識別"</text>
+
+  <!-- Arrow -->
+  <line x1="325" y1="140" x2="325" y2="165" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 2: Data Agent -->
+  <circle cx="55" cy="195" r="14" fill="#3b82f6"/>
+  <text x="55" y="200" class="step-num">2</text>
+  <rect x="80" y="175" width="530" height="70" fill="#d1fae5" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="95" y="195" class="box-text">Data Agent (並行獲取)</text>
+  <text x="95" y="215" class="content">• 獲取 AAPL 過去 5 天 K 線數據</text>
+  <text x="95" y="232" class="content">• 獲取同期 SPY 走勢作為基準</text>
+
+  <!-- Arrow -->
+  <line x1="325" y1="245" x2="325" y2="270" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 3: Analysis Agent -->
+  <circle cx="55" cy="300" r="14" fill="#3b82f6"/>
+  <text x="55" y="305" class="step-num">3</text>
+  <rect x="80" y="280" width="530" height="85" fill="#fef3c7" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="95" y="300" class="box-text">Analysis Agent (鏈式推理)</text>
+  <text x="95" y="320" class="content">"過去一週價格從 $185 下跌到 $178..."</text>
+  <text x="95" y="337" class="content">"觀察到 $175 附近有多次反彈，可能是支撐位..."</text>
+  <text x="95" y="354" class="content">"$185 是前高，多次觸及未突破，確認為阻力位..."</text>
+
+  <!-- Arrow -->
+  <line x1="325" y1="365" x2="325" y2="390" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 4: Report Agent -->
+  <circle cx="55" cy="420" r="14" fill="#3b82f6"/>
+  <text x="55" y="425" class="step-num">4</text>
+  <rect x="80" y="400" width="530" height="70" fill="#fce7f3" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="95" y="420" class="box-text">Report Agent (綜合輸出)</text>
+  <text x="95" y="440" class="content">• 短期趨勢：偏弱，處於下跌後的整理階段</text>
+  <text x="95" y="457" class="content">• 支撐位：$175  •  阻力位：$185</text>
+</svg>

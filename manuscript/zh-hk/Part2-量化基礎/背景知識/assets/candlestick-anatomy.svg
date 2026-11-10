@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 340">
+  <defs>
+    <style>
+      .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
+      .label-cn { font: 500 11px 'PingFang SC', 'Microsoft YaHei', sans-serif; fill: #1a1a1a; }
+      .label-right { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: start; }
+      .title { font: 600 14px 'PingFang SC', 'Microsoft YaHei', sans-serif; fill: #1a1a1a; text-anchor: middle; }
+      .subtitle { font: 500 11px 'PingFang SC', 'Microsoft YaHei', sans-serif; fill: #666; text-anchor: middle; }
+      .price-label { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#666"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="520" height="340" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="260" y="28" class="title">K線結構解析</text>
+  <text x="260" y="42" class="label" style="text-anchor: middle;">CANDLESTICK ANATOMY</text>
+
+  <!-- Bullish Candle (Red for China = Up) -->
+  <g transform="translate(100, 60)">
+    <text x="40" y="0" class="subtitle">陽線（上漲）</text>
+
+    <!-- Upper shadow line -->
+    <line x1="40" y1="20" x2="40" y2="70" stroke="#ef4444" stroke-width="2"/>
+
+    <!-- Body -->
+    <rect x="20" y="70" width="40" height="120" fill="#ef4444" stroke="#1a1a1a" stroke-width="1"/>
+
+    <!-- Lower shadow line -->
+    <line x1="40" y1="190" x2="40" y2="230" stroke="#ef4444" stroke-width="2"/>
+
+    <!-- Labels -->
+    <!-- High -->
+    <line x1="45" y1="20" x2="95" y2="20" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
+    <text x="100" y="18" class="label-cn">最高價</text>
+    <text x="100" y="30" class="label-right">HIGH</text>
+
+    <!-- Upper shadow -->
+    <line x1="45" y1="45" x2="95" y2="45" stroke="#666" stroke-width="1"/>
+    <text x="100" y="43" class="label-cn">上影線</text>
+    <text x="100" y="55" class="label-right">Upper Shadow</text>
+
+    <!-- Close -->
+    <line x1="65" y1="70" x2="95" y2="70" stroke="#666" stroke-width="1"/>
+    <text x="100" y="68" class="label-cn">收盤價</text>
+    <text x="100" y="80" class="label-right">CLOSE</text>
+
+    <!-- Body -->
+    <line x1="65" y1="130" x2="95" y2="130" stroke="#666" stroke-width="1"/>
+    <text x="100" y="128" class="label-cn">實體</text>
+    <text x="100" y="140" class="label-right">Body</text>
+
+    <!-- Open -->
+    <line x1="65" y1="190" x2="95" y2="190" stroke="#666" stroke-width="1"/>
+    <text x="100" y="188" class="label-cn">開盤價</text>
+    <text x="100" y="200" class="label-right">OPEN</text>
+
+    <!-- Low -->
+    <line x1="45" y1="230" x2="95" y2="230" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
+    <text x="100" y="228" class="label-cn">最低價</text>
+    <text x="100" y="240" class="label-right">LOW</text>
+  </g>
+
+  <!-- Bearish Candle (Green for China = Down) -->
+  <g transform="translate(310, 60)">
+    <text x="40" y="0" class="subtitle">陰線（下跌）</text>
+
+    <!-- Upper shadow line -->
+    <line x1="40" y1="20" x2="40" y2="70" stroke="#10b981" stroke-width="2"/>
+
+    <!-- Body -->
+    <rect x="20" y="70" width="40" height="120" fill="#10b981" stroke="#1a1a1a" stroke-width="1"/>
+
+    <!-- Lower shadow line -->
+    <line x1="40" y1="190" x2="40" y2="230" stroke="#10b981" stroke-width="2"/>
+
+    <!-- Labels -->
+    <!-- High -->
+    <line x1="45" y1="20" x2="95" y2="20" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
+    <text x="100" y="18" class="label-cn">最高價</text>
+    <text x="100" y="30" class="label-right">HIGH</text>
+
+    <!-- Open -->
+    <line x1="65" y1="70" x2="95" y2="70" stroke="#666" stroke-width="1"/>
+    <text x="100" y="68" class="label-cn">開盤價</text>
+    <text x="100" y="80" class="label-right">OPEN</text>
+
+    <!-- Close -->
+    <line x1="65" y1="190" x2="95" y2="190" stroke="#666" stroke-width="1"/>
+    <text x="100" y="188" class="label-cn">收盤價</text>
+    <text x="100" y="200" class="label-right">CLOSE</text>
+
+    <!-- Low -->
+    <line x1="45" y1="230" x2="95" y2="230" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
+    <text x="100" y="228" class="label-cn">最低價</text>
+    <text x="100" y="240" class="label-right">LOW</text>
+  </g>
+
+  <!-- Note about color conventions -->
+  <g transform="translate(40, 315)">
+    <text x="0" y="0" class="label-cn">A股：紅色=漲，綠色=跌</text>
+    <text x="220" y="0" class="label-cn">美股/國際：綠色=漲，紅色=跌</text>
+  </g>
+</svg>

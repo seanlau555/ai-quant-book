@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 440">
+  <defs>
+    <style>
+      .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; letter-spacing: 0.5px; }
+      .box-text { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
+      .box-text-sm { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
+      .title { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; letter-spacing: 1px; }
+      .container-title { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; letter-spacing: 0.5px; }
+      .num { font: 700 14px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #fff; text-anchor: middle; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+    <marker id="arrow-down" markerWidth="7" markerHeight="10" refX="3.5" refY="9" orient="auto">
+      <polygon points="0 0, 3.5 10, 7 0" fill="#666"/>
+    </marker>
+    <!-- Patterns -->
+    <pattern id="dots-data" width="6" height="6" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="1" fill="#0d9488" opacity="0.4"/>
+    </pattern>
+    <pattern id="diagonal-queue" width="5" height="5" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="5" x2="5" y2="0" stroke="#0891b2" stroke-width="0.6" opacity="0.5"/>
+    </pattern>
+    <pattern id="horizontal-engine" width="5" height="5" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="2.5" x2="5" y2="2.5" stroke="#ca8a04" stroke-width="0.6" opacity="0.5"/>
+    </pattern>
+    <pattern id="crosshatch-port" width="5" height="5" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="5" y2="5" stroke="#dc2626" stroke-width="0.4" opacity="0.4"/>
+      <line x1="5" y1="0" x2="0" y2="5" stroke="#dc2626" stroke-width="0.4" opacity="0.4"/>
+    </pattern>
+  </defs>
+
+  <!-- White background -->
+  <rect width="720" height="440" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="360" y="28" class="title" text-anchor="middle">EVENT-DRIVEN BACKTEST ARCHITECTURE / 事件驅動回測架構</text>
+
+  <!-- Main container -->
+  <rect x="25" y="50" width="670" height="370" fill="none" stroke="#d1d5db" stroke-width="1.5" stroke-dasharray="6,3" rx="4"/>
+
+  <!-- Row 1: Data Feed → Event Queue → Engine -->
+  <!-- Data Feed -->
+  <rect x="50" y="80" width="130" height="65" fill="#d1fae5" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="50" y="80" width="130" height="65" fill="url(#dots-data)"/>
+  <circle cx="60" cy="90" r="10" fill="#10b981"/>
+  <text x="60" y="94" class="num">1</text>
+  <text x="115" y="108" class="box-text">Data Feed</text>
+  <text x="115" y="122" class="label">數據源</text>
+  <text x="115" y="138" class="box-text-sm">Tick / Book Data</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="180" y1="112" x2="215" y2="112" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Event Queue -->
+  <rect x="225" y="80" width="140" height="65" fill="#a5f3fc" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="225" y="80" width="140" height="65" fill="url(#diagonal-queue)"/>
+  <circle cx="235" cy="90" r="10" fill="#0891b2"/>
+  <text x="235" y="94" class="num">2</text>
+  <text x="295" y="108" class="box-text">Event Queue</text>
+  <text x="295" y="122" class="label">事件隊列</text>
+  <text x="295" y="138" class="box-text-sm">Priority Queue</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="365" y1="112" x2="400" y2="112" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Engine -->
+  <rect x="410" y="80" width="130" height="65" fill="#fef3c7" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="410" y="80" width="130" height="65" fill="url(#horizontal-engine)"/>
+  <circle cx="420" cy="90" r="10" fill="#ca8a04"/>
+  <text x="420" y="94" class="num">3</text>
+  <text x="475" y="108" class="box-text">Engine</text>
+  <text x="475" y="122" class="label">引擎</text>
+  <text x="475" y="138" class="box-text-sm">Event Dispatcher</text>
+
+  <!-- Vertical line from Engine down -->
+  <line x1="475" y1="145" x2="475" y2="175" stroke="#666" stroke-width="1.5"/>
+
+  <!-- Horizontal distribution line -->
+  <line x1="115" y1="175" x2="620" y2="175" stroke="#666" stroke-width="1.5"/>
+
+  <!-- Vertical lines down to Row 2 components -->
+  <line x1="115" y1="175" x2="115" y2="205" stroke="#666" stroke-width="1.5" marker-end="url(#arrow-down)"/>
+  <line x1="295" y1="175" x2="295" y2="205" stroke="#666" stroke-width="1.5" marker-end="url(#arrow-down)"/>
+  <line x1="475" y1="175" x2="475" y2="205" stroke="#666" stroke-width="1.5" marker-end="url(#arrow-down)"/>
+  <line x1="620" y1="175" x2="620" y2="205" stroke="#666" stroke-width="1.5" marker-end="url(#arrow-down)"/>
+
+  <!-- Row 2: Strategy, Execution, Risk (plus note) -->
+  <!-- Strategy -->
+  <rect x="50" y="215" width="130" height="65" fill="#fbcfe8" stroke="#1a1a1a" stroke-width="1.5"/>
+  <circle cx="60" cy="225" r="10" fill="#db2777"/>
+  <text x="60" y="229" class="num">4</text>
+  <text x="115" y="243" class="box-text">Strategy</text>
+  <text x="115" y="257" class="label">策略</text>
+  <text x="115" y="273" class="box-text-sm">Signal Generation</text>
+
+  <!-- Execution -->
+  <rect x="230" y="215" width="130" height="65" fill="#ddd6fe" stroke="#1a1a1a" stroke-width="1.5"/>
+  <circle cx="240" cy="225" r="10" fill="#7c3aed"/>
+  <text x="240" y="229" class="num">5</text>
+  <text x="295" y="243" class="box-text">Execution</text>
+  <text x="295" y="257" class="label">執行</text>
+  <text x="295" y="273" class="box-text-sm">Order Matching</text>
+
+  <!-- Risk -->
+  <rect x="555" y="215" width="130" height="65" fill="#fed7aa" stroke="#1a1a1a" stroke-width="1.5"/>
+  <circle cx="565" cy="225" r="10" fill="#ea580c"/>
+  <text x="565" y="229" class="num">6</text>
+  <text x="620" y="243" class="box-text">Risk</text>
+  <text x="620" y="257" class="label">風控</text>
+  <text x="620" y="273" class="box-text-sm">Position Limits</text>
+
+  <!-- Dashed border around Strategy+Execution grouping (wider) -->
+  <rect x="410" y="215" width="130" height="65" fill="#e2e8f0" stroke="#64748b" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="475" y="243" class="box-text-sm" fill="#64748b">Engine dispatches</text>
+  <text x="475" y="257" class="box-text-sm" fill="#64748b">events to handlers</text>
+
+  <!-- Convergence arrows to Portfolio -->
+  <line x1="115" y1="280" x2="115" y2="310" stroke="#666" stroke-width="1.5"/>
+  <line x1="295" y1="280" x2="295" y2="310" stroke="#666" stroke-width="1.5"/>
+  <line x1="620" y1="280" x2="620" y2="310" stroke="#666" stroke-width="1.5"/>
+
+  <line x1="115" y1="310" x2="360" y2="310" stroke="#666" stroke-width="1.5"/>
+  <line x1="620" y1="310" x2="360" y2="310" stroke="#666" stroke-width="1.5"/>
+  <line x1="360" y1="310" x2="360" y2="340" stroke="#666" stroke-width="1.5" marker-end="url(#arrow-down)"/>
+
+  <!-- Portfolio (bottom center) -->
+  <rect x="280" y="350" width="160" height="60" fill="#fecaca" stroke="#1a1a1a" stroke-width="2"/>
+  <rect x="280" y="350" width="160" height="60" fill="url(#crosshatch-port)"/>
+  <circle cx="290" cy="360" r="10" fill="#dc2626"/>
+  <text x="290" y="364" class="num">7</text>
+  <text x="360" y="378" class="box-text">Portfolio</text>
+  <text x="360" y="392" class="label">投資組合</text>
+  <text x="360" y="406" class="box-text-sm">State &amp; P&amp;L Tracking</text>
+</svg>

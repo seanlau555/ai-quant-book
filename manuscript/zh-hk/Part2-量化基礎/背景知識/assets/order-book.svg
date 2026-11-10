@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 360">
+  <defs>
+    <style>
+      .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
+      .label-cn { font: 500 11px 'PingFang SC', 'Microsoft YaHei', sans-serif; fill: #666; }
+      .title { font: 600 14px 'PingFang SC', 'Microsoft YaHei', sans-serif; fill: #1a1a1a; text-anchor: middle; }
+      .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
+      .header { font: 600 11px 'PingFang SC', 'Microsoft YaHei', sans-serif; fill: #1a1a1a; }
+      .price { font: 500 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
+      .qty-ask { font: 500 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #ef4444; text-anchor: end; }
+      .qty-bid { font: 500 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #10b981; text-anchor: start; }
+      .annotation { font: 400 10px 'PingFang SC', 'Microsoft YaHei', sans-serif; fill: #666; }
+      .annotation-en { font: 400 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #999; }
+      .spread-label { font: 500 11px 'PingFang SC', 'Microsoft YaHei', sans-serif; fill: #f59e0b; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#666"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="500" height="360" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="250" y="25" class="title">訂單簿結構</text>
+  <text x="250" y="40" class="subtitle">ORDER BOOK STRUCTURE</text>
+
+  <!-- Column Headers -->
+  <text x="100" y="65" class="header" style="text-anchor: end;">賣單 (Ask)</text>
+  <text x="250" y="65" class="header" style="text-anchor: middle;">價格</text>
+  <text x="400" y="65" class="header" style="text-anchor: start;">買單 (Bid)</text>
+
+  <!-- Header line -->
+  <line x1="40" y1="75" x2="460" y2="75" stroke="#e5e7eb" stroke-width="1"/>
+
+  <!-- Ask Side (Sell orders) - Red bars on left -->
+  <!-- Level 4 -->
+  <rect x="55" y="85" width="50" height="22" fill="#fecaca" stroke="#ef4444" stroke-width="1"/>
+  <text x="100" y="100" class="qty-ask">500股</text>
+  <text x="250" y="100" class="price">$185.50</text>
+
+  <!-- Level 3 -->
+  <rect x="70" y="112" width="35" height="22" fill="#fecaca" stroke="#ef4444" stroke-width="1"/>
+  <text x="100" y="127" class="qty-ask">300股</text>
+  <text x="250" y="127" class="price">$185.45</text>
+
+  <!-- Level 2 -->
+  <rect x="75" y="139" width="30" height="22" fill="#fecaca" stroke="#ef4444" stroke-width="1"/>
+  <text x="100" y="154" class="qty-ask">200股</text>
+  <text x="250" y="154" class="price">$185.40</text>
+
+  <!-- Level 1 Ask (Best Ask) - 賣一 -->
+  <rect x="60" y="166" width="45" height="22" fill="#ef4444" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="100" y="181" class="qty-ask" style="fill: #fff;">200股</text>
+  <text x="250" y="181" class="price" style="font-weight: 600;">$185.35</text>
+
+  <!-- Arrow pointing to Ask Level 1 -->
+  <line x1="320" y1="177" x2="290" y2="177" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
+  <text x="325" y="173" class="annotation">賣一（最低賣價）</text>
+  <text x="325" y="186" class="annotation-en">Ask Level 1</text>
+
+  <!-- Spread visualization -->
+  <rect x="210" y="193" width="80" height="24" fill="#fef3c7" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="250" y="209" class="spread-label" style="text-anchor: middle;">價差</text>
+  <text x="250" y="232" class="label" style="text-anchor: middle;">$185.35 - $185.30 = $0.05</text>
+
+  <!-- Level 1 Bid (Best Bid) - 買一 -->
+  <rect x="400" y="242" width="30" height="22" fill="#10b981" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="400" y="257" class="qty-bid" style="fill: #fff;">100股</text>
+  <text x="250" y="257" class="price" style="font-weight: 600;">$185.30</text>
+
+  <!-- Arrow pointing to Bid Level 1 -->
+  <line x1="175" y1="253" x2="205" y2="253" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
+  <text x="125" y="249" class="annotation">買一（最高買價）</text>
+  <text x="125" y="262" class="annotation-en">Bid Level 1</text>
+
+  <!-- Level 2 Bid -->
+  <rect x="400" y="269" width="60" height="22" fill="#d1fae5" stroke="#10b981" stroke-width="1"/>
+  <text x="400" y="284" class="qty-bid">400股</text>
+  <text x="250" y="284" class="price">$185.25</text>
+
+  <!-- Level 3 Bid -->
+  <rect x="400" y="296" width="80" height="22" fill="#d1fae5" stroke="#10b981" stroke-width="1"/>
+  <text x="400" y="311" class="qty-bid">600股</text>
+  <text x="250" y="311" class="price">$185.20</text>
+
+  <!-- Dividing line between ask and bid -->
+  <line x1="40" y1="217" x2="460" y2="217" stroke="#1a1a1a" stroke-width="2"/>
+
+  <!-- Legend -->
+  <g transform="translate(40, 345)">
+    <rect x="0" y="-8" width="12" height="12" fill="#ef4444"/>
+    <text x="18" y="2" class="label-cn">賣單 (Ask)</text>
+    <rect x="120" y="-8" width="12" height="12" fill="#10b981"/>
+    <text x="138" y="2" class="label-cn">買單 (Bid)</text>
+    <rect x="240" y="-8" width="12" height="12" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="258" y="2" class="label-cn">買賣價差 (Spread)</text>
+  </g>
+</svg>
