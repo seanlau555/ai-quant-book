@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 380">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#1a1a1a"/>
+    </marker>
+  </defs>
+
+  <rect width="620" height="380" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="310" y="28" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="14" font-weight="600" fill="#1a1a1a" text-anchor="middle">META-LABELING 兩階段決策</text>
+
+  <!-- Stage labels -->
+  <text x="150" y="75" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="11" font-weight="600" fill="#1a1a1a" text-anchor="middle">階段 1</text>
+
+  <text x="470" y="75" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="11" font-weight="600" fill="#1a1a1a" text-anchor="middle">階段 2</text>
+
+  <!-- Primary Model Box -->
+  <rect x="70" y="110" width="160" height="100" fill="#67e8f9" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="150" y="145" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="12" font-weight="600" fill="#1a1a1a" text-anchor="middle">PRIMARY MODEL</text>
+  <line x1="90" y1="165" x2="210" y2="165" stroke="#1a1a1a" stroke-width="1" opacity="0.3"/>
+  <text x="150" y="188" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" fill="#999" text-anchor="middle">預測方向（Side）</text>
+
+  <!-- Arrow from Primary to output -->
+  <path d="M230,140 L285,140" stroke="#1a1a1a" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Side output box -->
+  <rect x="295" y="115" width="90" height="50" fill="#fff" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="340" y="137" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="10" font-weight="500" fill="#1a1a1a" text-anchor="middle">「應該買入」</text>
+  <text x="340" y="155" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="8" fill="#999" text-anchor="middle">+1 / BUY</text>
+
+  <!-- Arrow from side to meta model -->
+  <path d="M340,165 L340,200 L390,220" stroke="#1a1a1a" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Meta Model Box -->
+  <rect x="390" y="110" width="160" height="100" fill="#f9a8d4" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="470" y="145" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="12" font-weight="600" fill="#1a1a1a" text-anchor="middle">META MODEL</text>
+  <line x1="410" y1="165" x2="530" y2="165" stroke="#1a1a1a" stroke-width="1" opacity="0.3"/>
+  <text x="470" y="188" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" fill="#999" text-anchor="middle">預測 Confidence（Size）</text>
+
+  <!-- Arrow from Meta to output -->
+  <path d="M470,210 L470,240" stroke="#1a1a1a" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Confidence output box -->
+  <rect x="405" y="250" width="130" height="55" fill="#fff" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="470" y="272" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="10" font-weight="500" fill="#1a1a1a" text-anchor="middle">「可靠度 80%」</text>
+  <text x="470" y="292" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="8" fill="#999" text-anchor="middle">CONFIDENCE：0.8</text>
+
+  <!-- Arrow to final decision -->
+  <path d="M470,305 L470,330" stroke="#1a1a1a" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Final Decision -->
+  <rect x="370" y="340" width="200" height="35" fill="#10b981" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="470" y="363" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="11" font-weight="600" fill="#fff" text-anchor="middle">「執行 80% 倉位」</text>
+
+  <!-- Summary section -->
+  <rect x="70" y="240" width="260" height="90" fill="#fef3c7" stroke="#fde047" stroke-width="1.5" rx="2"/>
+  <text x="200" y="262" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="10" font-weight="600" fill="#1a1a1a" text-anchor="middle">重點</text>
+  <text x="200" y="285" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" fill="#666" text-anchor="middle">不預測升跌</text>
+  <text x="200" y="302" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" fill="#666" text-anchor="middle">預測「此預測是否可靠？」</text>
+  <text x="200" y="320" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="8" fill="#999" text-anchor="middle">預測可靠度，而非方向</text>
+
+  <!-- Dotted line separator between stages -->
+  <line x1="310" y1="100" x2="310" y2="340" stroke="#ccc" stroke-width="1" stroke-dasharray="4,4"/>
+</svg>

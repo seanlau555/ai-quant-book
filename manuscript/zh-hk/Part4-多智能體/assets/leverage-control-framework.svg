@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 320">
+  <style>
+    .title { font: 600 13px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
+    .level-title { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .item { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .note { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #fff; }
+  </style>
+
+  <!-- Background -->
+  <rect width="620" height="320" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="310" y="25" text-anchor="middle" class="title">Leverage Control Framework</text>
+  <text x="310" y="40" text-anchor="middle" class="subtitle">MULTI-LEVEL LEVERAGE CONSTRAINTS</text>
+
+  <!-- Level 1 -->
+  <rect x="30" y="55" width="135" height="115" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5" rx="2"/>
+  <rect x="30" y="55" width="135" height="25" fill="#60a5fa" rx="2"/>
+  <text x="97" y="73" text-anchor="middle" class="note">Level 1</text>
+  <text x="97" y="100" text-anchor="middle" class="level-title">Notional Limit</text>
+  <text x="40" y="120" class="item">• Total notional/capital</text>
+  <text x="40" y="135" class="item">  ≤ 3x</text>
+  <text x="40" y="155" class="item">• Single asset class</text>
+  <text x="40" y="170" class="item">  ≤ 2x</text>
+
+  <!-- Level 2 -->
+  <rect x="175" y="55" width="135" height="115" fill="#d1fae5" stroke="#10b981" stroke-width="1.5" rx="2"/>
+  <rect x="175" y="55" width="135" height="25" fill="#10b981" rx="2"/>
+  <text x="242" y="73" text-anchor="middle" class="note">Level 2</text>
+  <text x="242" y="100" text-anchor="middle" class="level-title">Risk Leverage</text>
+  <text x="185" y="120" class="item">• Portfolio vol / target</text>
+  <text x="185" y="135" class="item">  ≤ 1.5x</text>
+  <text x="185" y="155" class="item">• Stress test vol</text>
+  <text x="185" y="170" class="item">  ≤ 2x</text>
+
+  <!-- Level 3 -->
+  <rect x="320" y="55" width="135" height="115" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" rx="2"/>
+  <rect x="320" y="55" width="135" height="25" fill="#f59e0b" rx="2"/>
+  <text x="387" y="73" text-anchor="middle" class="note">Level 3</text>
+  <text x="387" y="100" text-anchor="middle" class="level-title">Margin Buffer</text>
+  <text x="330" y="120" class="item">• Used margin</text>
+  <text x="330" y="135" class="item">  ≤ 50% available</text>
+  <text x="330" y="155" class="item">• Reserve 50% for</text>
+  <text x="330" y="170" class="item">  margin calls</text>
+
+  <!-- Level 4 -->
+  <rect x="465" y="55" width="135" height="115" fill="#fee2e2" stroke="#ef4444" stroke-width="1.5" rx="2"/>
+  <rect x="465" y="55" width="135" height="25" fill="#ef4444" rx="2"/>
+  <text x="532" y="73" text-anchor="middle" class="note">Level 4</text>
+  <text x="532" y="100" text-anchor="middle" class="level-title">Stress Scenarios</text>
+  <text x="475" y="120" class="item">• Assume vol doubles</text>
+  <text x="475" y="135" class="item">  leverage still safe</text>
+  <text x="475" y="155" class="item">• Assume corr → 1</text>
+  <text x="475" y="170" class="item">  portfolio survives</text>
+
+  <!-- Bottom warning -->
+  <rect x="30" y="190" width="570" height="115" fill="#f3f4f6" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,2" rx="2"/>
+  <text x="310" y="215" text-anchor="middle" class="level-title">Hidden Leverage Warning</text>
+  <text x="310" y="240" text-anchor="middle" class="item">Futures portfolios may have notional far exceeding capital</text>
+  <text x="310" y="260" text-anchor="middle" class="item">$1M capital + $6.5M notional = 6.5x leverage</text>
+  <text x="310" y="280" text-anchor="middle" class="item">Low margin ≠ low risk, true leverage is what matters</text>
+  <text x="310" y="300" text-anchor="middle" class="item">Crisis: Vol doubles + Corr → 1 = Disaster</text>
+</svg>

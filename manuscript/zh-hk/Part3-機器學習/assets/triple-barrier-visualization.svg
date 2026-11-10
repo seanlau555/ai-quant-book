@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L8,3 z" fill="#1a1a1a"/>
+    </marker>
+    <pattern id="timeHatch" patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#fde047" stroke-width="3"/>
+    </pattern>
+  </defs>
+
+  <rect width="600" height="360" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="300" y="25" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="14" font-weight="600" fill="#1a1a1a" text-anchor="middle">TRIPLE BARRIER 標籤方法</text>
+  <text x="300" y="42" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="10" fill="#666" text-anchor="middle">三種結果分類</text>
+
+  <!-- Y-axis -->
+  <line x1="60" y1="70" x2="60" y2="300" stroke="#ccc" stroke-width="1.5"/>
+  <text x="30" y="185" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="10" fill="#666" text-anchor="middle" transform="rotate(-90 30 185)">PRICE</text>
+
+  <!-- X-axis -->
+  <line x1="60" y1="300" x2="560" y2="300" stroke="#ccc" stroke-width="1.5"/>
+  <text x="310" y="330" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="10" fill="#666" text-anchor="middle">時間</text>
+
+  <!-- Upper barrier (Take Profit) - green -->
+  <line x1="100" y1="100" x2="460" y2="100" stroke="#10b981" stroke-width="2.5"/>
+  <rect x="465" y="88" width="100" height="24" fill="#d1fae5" stroke="#10b981" stroke-width="1.5" rx="2"/>
+  <text x="515" y="104" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" font-weight="600" fill="#10b981" text-anchor="middle">上界 +2%</text>
+
+  <!-- Entry price line - center -->
+  <line x1="100" y1="185" x2="560" y2="185" stroke="#1a1a1a" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <circle cx="100" cy="185" r="5" fill="#60a5fa" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="85" y="180" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" fill="#60a5fa" text-anchor="end">ENTRY</text>
+
+  <!-- Lower barrier (Stop Loss) - red -->
+  <line x1="100" y1="270" x2="460" y2="270" stroke="#ef4444" stroke-width="2.5"/>
+  <rect x="465" y="258" width="100" height="24" fill="#fecaca" stroke="#ef4444" stroke-width="1.5" rx="2"/>
+  <text x="515" y="274" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" font-weight="600" fill="#ef4444" text-anchor="middle">下界 -1%</text>
+
+  <!-- Time barrier (Vertical) - yellow hatched -->
+  <rect x="450" y="100" width="10" height="170" fill="url(#timeHatch)" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="460" y="330" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" font-weight="600" fill="#ca8a04" text-anchor="middle">時間 BARRIER</text>
+  <text x="460" y="345" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="7" fill="#ca8a04" text-anchor="middle">最長持有</text>
+
+  <!-- Price path hitting upper barrier -->
+  <path d="M100,185
+           C130,175 150,190 170,170
+           C190,150 210,165 230,145
+           C250,125 270,140 290,120
+           C310,105 330,110 350,100"
+        stroke="#1a1a1a" stroke-width="2" fill="none"/>
+
+  <!-- Hit point indicator -->
+  <circle cx="350" cy="100" r="6" fill="#10b981" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="350" y="80" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" font-weight="600" fill="#10b981" text-anchor="middle">Label = 1</text>
+
+  <!-- Alternative path (dashed) hitting lower barrier -->
+  <path d="M100,185
+           C130,195 150,180 170,200
+           C190,220 210,210 230,235
+           C250,255 270,250 280,270"
+        stroke="#999" stroke-width="1.5" fill="none" stroke-dasharray="4,3"/>
+
+  <!-- Alternative hit point -->
+  <circle cx="280" cy="270" r="5" fill="#ef4444" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="280" y="250" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="8" fill="#999" text-anchor="middle">Label = -1</text>
+
+  <!-- Legend -->
+  <rect x="70" y="315" width="200" height="35" fill="none" stroke="#ccc" stroke-width="1" stroke-dasharray="4,2" rx="2"/>
+  <line x1="85" y1="330" x2="105" y2="330" stroke="#1a1a1a" stroke-width="2"/>
+  <text x="115" y="333" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="8" fill="#666">實際路徑</text>
+  <line x1="165" y1="330" x2="185" y2="330" stroke="#999" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="195" y="333" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="8" fill="#666">替代路徑</text>
+
+  <!-- Time labels on x-axis -->
+  <text x="100" y="312" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="8" fill="#999" text-anchor="middle">T=0</text>
+  <text x="280" y="312" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="8" fill="#999" text-anchor="middle">T=3</text>
+  <text x="460" y="312" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="8" fill="#999" text-anchor="middle">T=5</text>
+</svg>

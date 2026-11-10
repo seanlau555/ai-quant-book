@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 300">
+  <defs>
+    <pattern id="hatch-purge" patternUnits="userSpaceOnUse" width="8" height="8">
+      <path d="M-2,2 l4,-4 M0,8 l8,-8 M6,10 l4,-4" stroke="#f87171" stroke-width="1.5"/>
+    </pattern>
+    <pattern id="hatch-embargo" patternUnits="userSpaceOnUse" width="8" height="8">
+      <path d="M-2,2 l4,-4 M0,8 l8,-8 M6,10 l4,-4" stroke="#fbbf24" stroke-width="1.5"/>
+    </pattern>
+  </defs>
+
+  <rect width="680" height="300" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="340" y="28" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="14" font-weight="600" fill="#1a1a1a" text-anchor="middle">PURGED K-FOLD CROSS-VALIDATION</text>
+  <text x="340" y="45" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="10" fill="#666" text-anchor="middle">防止時間序列中的 INFORMATION LEAKAGE</text>
+
+  <!-- Timeline axis -->
+  <line x1="60" y1="130" x2="620" y2="130" stroke="#1a1a1a" stroke-width="2"/>
+  <text x="40" y="135" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="10" fill="#1a1a1a">[1]</text>
+  <text x="600" y="135" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="10" fill="#1a1a1a">[100]</text>
+
+  <!-- Tick marks -->
+  <line x1="60" y1="125" x2="60" y2="135" stroke="#1a1a1a" stroke-width="1.5"/>
+  <line x1="620" y1="125" x2="620" y2="135" stroke="#1a1a1a" stroke-width="1.5"/>
+
+  <!-- Training region 1 (left) -->
+  <rect x="60" y="80" width="135" height="40" fill="#5eead4" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="127" y="105" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="10" font-weight="500" fill="#1a1a1a" text-anchor="middle">[1-----35]</text>
+
+  <!-- Purge region -->
+  <rect x="200" y="80" width="45" height="40" fill="url(#hatch-purge)" stroke="#f87171" stroke-width="1.5" rx="2"/>
+  <text x="222" y="105" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" font-weight="500" fill="#f87171" text-anchor="middle">36-40</text>
+
+  <!-- Test region -->
+  <rect x="250" y="80" width="160" height="40" fill="#67e8f9" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="330" y="105" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="10" font-weight="500" fill="#1a1a1a" text-anchor="middle">[41---------60]</text>
+
+  <!-- Embargo region -->
+  <rect x="415" y="80" width="40" height="40" fill="url(#hatch-embargo)" stroke="#fbbf24" stroke-width="1.5" rx="2"/>
+  <text x="435" y="105" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" font-weight="500" fill="#92400e" text-anchor="middle">61-65</text>
+
+  <!-- Training region 2 (right) -->
+  <rect x="460" y="80" width="160" height="40" fill="#5eead4" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="540" y="105" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="10" font-weight="500" fill="#1a1a1a" text-anchor="middle">[66----------100]</text>
+
+  <!-- Labels row -->
+  <text x="127" y="155" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="10" fill="#666" text-anchor="middle">TRAIN</text>
+
+  <text x="222" y="155" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="10" fill="#f87171" text-anchor="middle">PURGE</text>
+
+  <text x="330" y="155" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="10" fill="#0891b2" text-anchor="middle">TEST</text>
+
+  <text x="435" y="155" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="10" fill="#92400e" text-anchor="middle">EMBARGO</text>
+
+  <text x="540" y="155" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="10" fill="#666" text-anchor="middle">TRAIN</text>
+
+  <!-- Legend -->
+  <rect x="60" y="190" width="20" height="15" fill="#5eead4" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="90" y="202" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" fill="#1a1a1a">Training 數據</text>
+
+  <rect x="220" y="190" width="20" height="15" fill="#67e8f9" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="250" y="202" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" fill="#1a1a1a">Test 數據</text>
+
+  <rect x="380" y="190" width="20" height="15" fill="url(#hatch-purge)" stroke="#f87171" stroke-width="1"/>
+  <text x="410" y="202" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" fill="#1a1a1a">Purge：移除 label 重疊</text>
+
+  <rect x="60" y="215" width="20" height="15" fill="url(#hatch-embargo)" stroke="#fbbf24" stroke-width="1"/>
+  <text x="90" y="227" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" fill="#1a1a1a">Embargo：額外安全緩衝</text>
+
+  <!-- Key point -->
+  <rect x="60" y="250" width="560" height="35" fill="#fef3c7" stroke="#fde047" stroke-width="1" rx="2"/>
+  <text x="340" y="272" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="10" fill="#666" text-anchor="middle">重點：防止未來資訊洩漏入 training data</text>
+</svg>

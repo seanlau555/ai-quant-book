@@ -1,71 +1,71 @@
-# 背景知識：Tick 級回測框架
+# 背景知識：Tick 級 Backtest 框架
 
-> "用日線回測分鐘策略，就像用世界地圖導航城市街道——精度完全不夠。"
+> 「用日線 bar 去 backtest 分鐘級策略，就像用世界地圖在市內街道導航——解像度完全不夠。」
 
 ---
 
-## 一、為什麼需要 Tick 級回測？
+## 1. 為什麼需要 Tick 級 Backtest？
 
 ### 1.1 不同數據粒度的適用場景
 
-| 數據粒度 | 適用策略 | 精度 | 數據量 |
-|---------|---------|------|-------|
-| 日線 | 趨勢跟蹤、價值投資 | 低 | 小 |
-| 分鐘線 | 日內動量、均值迴歸 | 中 | 中 |
-| Tick/L2 | 做市、高頻套利、精確執行 | 高 | 大 |
+| 數據粒度 | 適合的策略 | 精度 | 數據量 |
+|----------|------------|------|--------|
+| Daily | Trend following、Value investing | 低 | 小 |
+| Minute | 日內 momentum、Mean reversion | 中 | 中 |
+| Tick/L2 | Market making、HFT arbitrage、精準執行 | 高 | 大 |
 
-### 1.2 分鐘線回測的侷限
+### 1.2 分鐘 bar Backtest 的局限
 
 ```
-場景：5 分鐘 K 線顯示
+Scenario: A 5-minute bar shows
   Open: $100.00
   High: $100.50
   Low:  $99.80
   Close: $100.20
 
-問題：這 5 分鐘內，價格走勢是什麼樣的？
+Question: What was the price path during these 5 minutes?
 
-可能性 1: 先漲後跌再漲
+Possibility 1: Up then down then up
   $100.00 → $100.50 → $99.80 → $100.20
 
-可能性 2: 先跌後漲
+Possibility 2: Down then up
   $100.00 → $99.80 → $100.50 → $100.20
 
-可能性 3: 劇烈震盪
-  多次觸及高低點
+Possibility 3: Volatile oscillation
+  Multiple touches of high and low
 
-你的止損在 $99.90 會被觸發嗎？用 K 線無法確定。
+Would your stop-loss at $99.90 be triggered? Can't tell from bars.
 ```
 
-### 1.3 Tick 數據能回答的問題
+### 1.3 Tick 數據可以回答的問題
 
-| 問題 | K 線回測 | Tick 回測 |
-|-----|---------|----------|
-| 限價單能否成交？ | 只能猜測 | 精確判斷 |
-| 成交的具體時間？ | 不知道 | 毫秒級精度 |
-| 排隊位置影響？ | 無法模擬 | 可以估算 |
-| 價格路徑依賴的止損？ | 不準確 | 準確 |
-| 滑點的真實分佈？ | 固定假設 | 實際計算 |
+| 問題 | Bar Backtest | Tick Backtest |
+|------|--------------|---------------|
+| Limit order 會否成交？ | 只能猜測 | 精確判斷 |
+| 確切成交時間？ | 未知 | 毫秒級精度 |
+| Queue position 的影響？ | 無法模擬 | 可以估算 |
+| Path-dependent stop-loss？ | 不準確 | 準確 |
+| 真實 slippage 分佈？ | 固定假設 | 實際計算 |
 
 ---
 
-## 二、Tick 數據結構
+## 2. Tick 數據結構
 
-### 2.1 逐筆成交數據（Trade Tick）
+### 2.1 Trade Tick 數據
 
 ```python
 @dataclass
 class TradeTick:
-    """逐筆成交"""
-    timestamp: float      # Unix 時間戳（秒，含小數部分表示毫秒）
-    symbol: str           # 標的代碼
-    price: float          # 成交價
-    size: float           # 成交量
-    side: str             # 'buy' 或 'sell'（主動方向）
-    trade_id: str         # 成交編號
+    """Trade-by-trade data"""
+    timestamp: float      # Unix timestamp (seconds with decimal fraction)
+    symbol: str           # Symbol code
+    price: float          # Trade price
+    size: float           # Trade size
+    side: str             # 'buy' or 'sell' (aggressor side)
+    trade_id: str         # Trade ID
 ```
 
-**示例數據**：
+**樣本數據**：
 ```
 timestamp,symbol,price,size,side,trade_id
 1704067200.123,AAPL,185.50,100,buy,T001
@@ -74,16 +74,16 @@ timestamp,symbol,price,size,side,trade_id
 1704067200.201,AAPL,185.49,150,sell,T004
 ```
 
-### 2.2 訂單簿快照（Order Book Snapshot）
+### 2.2 Order Book Snapshot
 
 ```python
 @dataclass
 class OrderBookSnapshot:
-    """訂單簿快照"""
+    """Order book snapshot"""
     timestamp: float
     symbol: str
-    bids: List[Tuple[float, float]]  # [(價格, 數量), ...]
-    asks: List[Tuple[float, float]]  # [(價格, 數量), ...]
+    bids: List[Tuple[float, float]]  # [(price, size), ...]
+    asks: List[Tuple[float, float]]  # [(price, size), ...]
 
     @property
     def mid_price(self) -> float:
@@ -98,38 +98,38 @@ class OrderBookSnapshot:
         return float('inf')
 ```
 
-### 2.3 訂單簿增量更新（Order Book Delta）
+### 2.3 Order Book Delta
 
 ```python
 @dataclass
 class OrderBookDelta:
-    """訂單簿增量更新"""
+    """Order book incremental update"""
     timestamp: float
     symbol: str
-    side: str           # 'bid' 或 'ask'
+    side: str           # 'bid' or 'ask'
     price: float
-    size: float         # 新數量（0 表示刪除該價位）
+    size: float         # New quantity (0 means delete price level)
     action: str         # 'add', 'modify', 'delete'
 ```
 
 ---
 
-## 三、事件驅動 vs 向量化回測
+## 3. Event-Driven 與 Vectorized Backtest
 
-### 3.1 向量化回測（Vectorized）
+### 3.1 Vectorized Backtest
 
 **特點**：
 - 用 NumPy/Pandas 批量計算
-- 速度快（秒級完成數年數據）
+- 速度快（數秒內處理數年數據）
 - 適合簡單策略
 
-**侷限**：
-- 難以模擬訂單狀態
-- 無法處理複雜執行邏輯
-- 路徑依賴的邏輯難以表達
+**局限**：
+- 難以模擬 order 狀態
+- 無法處理複雜的執行邏輯
+- Path-dependent 邏輯難以表達
 
 ```python
-# 向量化回測示例
+# Vectorized backtest example
 import pandas as pd
 import numpy as np
 
@@ -137,54 +137,54 @@ def vectorized_backtest(df: pd.DataFrame,
                         signal_col: str,
                         price_col: str = 'close') -> pd.Series:
     """
-    簡單向量化回測
-    signal_col: 1=做多, -1=做空, 0=空倉
+    Simple vectorized backtest
+    signal_col: 1=long, -1=short, 0=flat
     """
-    # 信號延遲一期（避免未來信息）
+    # Shift signal by 1 period (avoid lookahead)
     position = df[signal_col].shift(1).fillna(0)
 
-    # 計算收益
+    # Calculate returns
     returns = df[price_col].pct_change()
     strategy_returns = position * returns
 
-    # 累計收益
+    # Cumulative returns
     cumulative = (1 + strategy_returns).cumprod()
 
     return cumulative
 ```
 
-### 3.2 事件驅動回測（Event-Driven）
+### 3.2 Event-Driven Backtest
 
 **特點**：
-- 逐事件處理
-- 可以精確模擬訂單生命週期
-- 適合複雜策略和 Tick 數據
+- 逐個 event 處理
+- 可以精確模擬 order 的生命週期
+- 適合複雜策略及 tick 數據
 
 **代價**：
 - 速度較慢
-- 代碼複雜度高
+- 代碼複雜度較高
 
 ```
-事件流:
+Event stream:
   t=0.001: MarketData(AAPL, bid=185.50, ask=185.51)
   t=0.002: Signal(BUY, size=100)
   t=0.002: OrderSubmit(LIMIT, 185.50, 100)
   t=0.005: MarketData(AAPL, bid=185.49, ask=185.50)
-  t=0.010: Trade(185.50, 50)  ← 部分成交
+  t=0.010: Trade(185.50, 50)  ← Partial fill
   t=0.015: MarketData(AAPL, bid=185.50, ask=185.51)
-  t=0.020: Trade(185.50, 50)  ← 剩餘成交
-  t=0.020: OrderFilled(全部成交)
+  t=0.020: Trade(185.50, 50)  ← Remaining fill
+  t=0.020: OrderFilled(complete)
 ```
 
 ---
 
-## 四、事件驅動框架實現
+## 4. Event-Driven 框架實現
 
 ### 4.1 核心組件
 
-![事件驅動回測架構](../assets/event-driven-backtest-architecture.svg)
+![Event-Driven Backtest 架構](../assets/event-driven-backtest-architecture.svg)
 
-### 4.2 事件類型定義
+### 4.2 Event 類型定義
 
 ```python
 from enum import Enum
@@ -200,13 +200,13 @@ class EventType(Enum):
 
 @dataclass
 class Event:
-    """基礎事件"""
+    """Base event"""
     timestamp: float
     event_type: EventType
 
 @dataclass
 class MarketDataEvent(Event):
-    """市場數據事件"""
+    """Market data event"""
     symbol: str
     bid: float
     ask: float
@@ -220,22 +220,22 @@ class MarketDataEvent(Event):
 
 @dataclass
 class SignalEvent(Event):
-    """策略信號事件"""
+    """Strategy signal event"""
     symbol: str
-    direction: int      # 1=買, -1=賣, 0=平倉
-    strength: float     # 信號強度 [0, 1]
+    direction: int      # 1=buy, -1=sell, 0=close
+    strength: float     # Signal strength [0, 1]
 
     def __post_init__(self):
         self.event_type = EventType.SIGNAL
 
 @dataclass
 class OrderEvent(Event):
-    """訂單事件"""
+    """Order event"""
     symbol: str
     order_type: str     # 'market', 'limit'
     side: str           # 'buy', 'sell'
     quantity: float
-    price: Optional[float] = None  # 限價單價格
+    price: Optional[float] = None  # Limit order price
     order_id: Optional[str] = None
 
     def __post_init__(self):
@@ -243,7 +243,7 @@ class OrderEvent(Event):
 
 @dataclass
 class FillEvent(Event):
-    """成交事件"""
+    """Fill event"""
     symbol: str
     order_id: str
     side: str
@@ -255,27 +255,27 @@ class FillEvent(Event):
         self.event_type = EventType.FILL
 ```
 
-### 4.3 事件隊列
+### 4.3 Event Queue
 
 ```python
 import heapq
 from typing import List
 
 class EventQueue:
-    """優先級事件隊列（按時間排序）"""
+    """Priority event queue (sorted by timestamp)"""
 
     def __init__(self):
         self._queue: List[tuple] = []
-        self._counter = 0  # 用於相同時間的事件排序
+        self._counter = 0  # For ordering events at same timestamp
 
     def push(self, event: Event):
-        """添加事件"""
+        """Add event"""
         heapq.heappush(self._queue,
                        (event.timestamp, self._counter, event))
         self._counter += 1
 
     def pop(self) -> Optional[Event]:
-        """取出最早的事件"""
+        """Pop earliest event"""
         if self._queue:
             _, _, event = heapq.heappop(self._queue)
             return event
@@ -285,17 +285,17 @@ class EventQueue:
         return len(self._queue) == 0
 
     def peek(self) -> Optional[Event]:
-        """查看最早的事件（不移除）"""
+        """View earliest event (without removing)"""
         if self._queue:
             return self._queue[0][2]
         return None
 ```
 
-### 4.4 執行模擬器
+### 4.4 Execution Simulator
 
 ```python
 class TickExecutionSimulator:
-    """Tick 級執行模擬器"""
+    """Tick-level execution simulator"""
 
     def __init__(self,
                  commission_rate: float = 0.0003,
@@ -308,22 +308,22 @@ class TickExecutionSimulator:
     def submit_order(self, order: OrderEvent,
                      current_book: OrderBookSnapshot) -> List[Event]:
         """
-        提交訂單，返回產生的事件
+        Submit order, return generated events
         """
         events = []
         self.order_counter += 1
         order.order_id = f"ORD_{self.order_counter:06d}"
 
-        # 模擬延遲
+        # Simulate latency
         exec_time = order.timestamp + self.latency_ms / 1000
 
         if order.order_type == 'market':
-            # 市價單立即嘗試成交
+            # Market order attempts immediate fill
             fill = self._execute_market_order(order, current_book, exec_time)
             if fill:
                 events.append(fill)
         else:
-            # 限價單進入掛單隊列
+            # Limit order enters pending queue
             self.pending_orders[order.order_id] = {
                 'order': order,
                 'remaining': order.quantity,
@@ -334,7 +334,7 @@ class TickExecutionSimulator:
 
     def on_market_data(self, md: MarketDataEvent) -> List[Event]:
         """
-        市場數據更新時檢查掛單
+        Check pending orders on market data update
         """
         events = []
 
@@ -342,7 +342,7 @@ class TickExecutionSimulator:
             order = pending['order']
             remaining = pending['remaining']
 
-            # 檢查是否可成交
+            # Check if fillable
             fill_qty, fill_price = self._check_limit_fill(
                 order, remaining, md
             )
@@ -368,11 +368,11 @@ class TickExecutionSimulator:
     def _execute_market_order(self, order: OrderEvent,
                               book: OrderBookSnapshot,
                               exec_time: float) -> Optional[FillEvent]:
-        """執行市價單"""
+        """Execute market order"""
         if order.side == 'buy':
             if not book.asks:
                 return None
-            # 簡化：取賣一價
+            # Simplified: take ask level 1
             fill_price = book.asks[0][0]
         else:
             if not book.bids:
@@ -392,14 +392,14 @@ class TickExecutionSimulator:
     def _check_limit_fill(self, order: OrderEvent,
                           remaining: float,
                           md: MarketDataEvent) -> tuple:
-        """檢查限價單是否可成交"""
+        """Check if limit order can fill"""
         if order.side == 'buy':
-            # 買單：如果賣一價 <= 限價，可成交
+            # Buy order: if ask level 1 <= limit price, can fill
             if md.ask <= order.price:
                 fill_qty = min(remaining, md.ask_size)
                 return fill_qty, md.ask
         else:
-            # 賣單：如果買一價 >= 限價，可成交
+            # Sell order: if bid level 1 >= limit price, can fill
             if md.bid >= order.price:
                 fill_qty = min(remaining, md.bid_size)
                 return fill_qty, md.bid
@@ -407,11 +407,11 @@ class TickExecutionSimulator:
         return 0, 0
 ```
 
-### 4.5 回測引擎
+### 4.5 Backtest Engine
 
 ```python
 class TickBacktestEngine:
-    """Tick 級回測引擎"""
+    """Tick-level backtest engine"""
 
     def __init__(self, strategy, execution_sim: TickExecutionSimulator):
         self.strategy = strategy
@@ -421,7 +421,7 @@ class TickBacktestEngine:
         self.current_book = None
 
     def load_data(self, data_source):
-        """加載 Tick 數據到事件隊列"""
+        """Load tick data into event queue"""
         for tick in data_source:
             if isinstance(tick, TradeTick):
                 event = self._trade_to_event(tick)
@@ -430,7 +430,7 @@ class TickBacktestEngine:
             self.event_queue.push(event)
 
     def run(self) -> dict:
-        """運行回測"""
+        """Run backtest"""
         while not self.event_queue.is_empty():
             event = self.event_queue.pop()
             self._process_event(event)
@@ -438,7 +438,7 @@ class TickBacktestEngine:
         return self._calculate_results()
 
     def _process_event(self, event: Event):
-        """處理單個事件"""
+        """Process single event"""
         if event.event_type == EventType.MARKET_DATA:
             self._on_market_data(event)
         elif event.event_type == EventType.SIGNAL:
@@ -449,39 +449,39 @@ class TickBacktestEngine:
             self._on_fill(event)
 
     def _on_market_data(self, md: MarketDataEvent):
-        """處理市場數據"""
-        # 更新當前訂單簿
+        """Handle market data"""
+        # Update current order book
         self.current_book = md
 
-        # 檢查掛單成交
+        # Check pending order fills
         fills = self.execution.on_market_data(md)
         for fill in fills:
             self.event_queue.push(fill)
 
-        # 策略處理
+        # Strategy processing
         signal = self.strategy.on_data(md, self.portfolio)
         if signal:
             self.event_queue.push(signal)
 
     def _on_signal(self, signal: SignalEvent):
-        """處理策略信號"""
+        """Handle strategy signal"""
         order = self.strategy.signal_to_order(signal, self.portfolio)
         if order:
             self.event_queue.push(order)
 
     def _on_order(self, order: OrderEvent):
-        """處理訂單"""
+        """Handle order"""
         fills = self.execution.submit_order(order, self.current_book)
         for fill in fills:
             self.event_queue.push(fill)
 
     def _on_fill(self, fill: FillEvent):
-        """處理成交"""
+        """Handle fill"""
         self.portfolio.update(fill)
         self.strategy.on_fill(fill)
 
     def _calculate_results(self) -> dict:
-        """計算回測結果"""
+        """Calculate backtest results"""
         return {
             'total_return': self.portfolio.total_return,
             'sharpe_ratio': self.portfolio.sharpe_ratio,
@@ -494,47 +494,47 @@ class TickBacktestEngine:
 
 ---
 
-## 五、訂單排隊模擬
+## 5. Order Queue 模擬
 
-### 5.1 為什麼排隊位置重要？
+### 5.1 為什麼 Queue Position 重要？
 
 ```
-場景：你在 $100.00 掛了限價買單
+Scenario: You placed a limit buy order at $100.00
 
-盤口：
-  買一: $100.00 × 10,000 股（你排在第 5,000 位）
+Order Book:
+  Bid Level 1: $100.00 × 10,000 shares (you're in position 5,000)
 
-成交流：
-  賣方市價賣出 3,000 股 → 前 3,000 人成交，你還差 2,000
-  賣方市價賣出 1,500 股 → 前 4,500 人成交，你還差 500
-  價格跳到 $100.05     → 你的單子永遠不會成交了
+Trade Flow:
+  Seller market sells 3,000 shares → First 3,000 filled, you're still 2,000 behind
+  Seller market sells 1,500 shares → First 4,500 filled, you're still 500 behind
+  Price jumps to $100.05            → Your order will never fill
 
-結論：即使價格"觸達"你的限價，你也未必能成交
+Conclusion: Even if price "touches" your limit, you may not get filled
 ```
 
-### 5.2 排隊位置估算
+### 5.2 Queue Position 估算
 
 ```python
 class QueuePositionEstimator:
-    """排隊位置估算器"""
+    """Queue position estimator"""
 
     def __init__(self, queue_position_pct: float = 0.5):
         """
-        queue_position_pct: 假設你在隊列中的相對位置
-                           0 = 隊首, 1 = 隊尾
+        queue_position_pct: Your assumed relative position in queue
+                           0 = front, 1 = back
         """
         self.queue_pct = queue_position_pct
 
     def estimate_queue_ahead(self,
                              order: OrderEvent,
                              book: OrderBookSnapshot) -> float:
-        """估算排在你前面的訂單量"""
+        """Estimate order quantity ahead of you"""
         if order.side == 'buy':
-            # 找到你的價位在買盤的位置
+            # Find your price level in bid side
             for price, size in book.bids:
                 if price == order.price:
                     return size * self.queue_pct
-            # 價格不在當前盤口，可能全部在你前面
+            # Price not in current book, probably all ahead of you
             return float('inf')
         else:
             for price, size in book.asks:
@@ -546,9 +546,9 @@ class QueuePositionEstimator:
                               queue_ahead: float,
                               trade: TradeTick,
                               order: OrderEvent) -> float:
-        """根據成交更新排隊位置"""
+        """Update queue position based on trade"""
         if order.side == 'buy' and trade.side == 'sell':
-            # 賣方主動成交，消耗買盤
+            # Seller aggressor, consumes bid side
             if trade.price == order.price:
                 queue_ahead = max(0, queue_ahead - trade.size)
         elif order.side == 'sell' and trade.side == 'buy':
@@ -558,18 +558,18 @@ class QueuePositionEstimator:
         return queue_ahead
 
     def can_fill(self, queue_ahead: float, order_size: float) -> tuple:
-        """判斷是否可以成交"""
+        """Determine if can fill"""
         if queue_ahead <= 0:
             fill_qty = order_size
             return True, fill_qty
         return False, 0
 ```
 
-### 5.3 完整的限價單模擬
+### 5.3 完整的 Limit Order 模擬
 
 ```python
 class RealisticLimitOrderSimulator:
-    """考慮排隊的限價單模擬器"""
+    """Limit order simulator considering queue position"""
 
     def __init__(self,
                  queue_estimator: QueuePositionEstimator,
@@ -581,7 +581,7 @@ class RealisticLimitOrderSimulator:
     def submit_limit_order(self,
                            order: OrderEvent,
                            book: OrderBookSnapshot) -> str:
-        """提交限價單"""
+        """Submit limit order"""
         order_id = f"LMT_{len(self.orders):06d}"
 
         queue_ahead = self.queue_est.estimate_queue_ahead(order, book)
@@ -596,7 +596,7 @@ class RealisticLimitOrderSimulator:
         return order_id
 
     def on_trade(self, trade: TradeTick) -> List[FillEvent]:
-        """處理市場成交，更新排隊位置"""
+        """Process market trade, update queue positions"""
         fills = []
 
         for order_id, state in list(self.orders.items()):
@@ -605,21 +605,21 @@ class RealisticLimitOrderSimulator:
 
             order = state['order']
 
-            # 更新排隊位置
+            # Update queue position
             state['queue_ahead'] = self.queue_est.update_queue_on_trade(
                 state['queue_ahead'],
                 trade,
                 order
             )
 
-            # 檢查是否可以成交
+            # Check if can fill
             can_fill, fill_qty = self.queue_est.can_fill(
                 state['queue_ahead'],
                 state['remaining']
             )
 
             if can_fill and fill_qty > 0:
-                # 實際成交數量取決於對手方
+                # Actual fill quantity depends on counterparty
                 actual_fill = min(fill_qty, trade.size)
 
                 fill = FillEvent(
@@ -642,42 +642,42 @@ class RealisticLimitOrderSimulator:
 
 ---
 
-## 六、性能優化
+## 6. 性能優化
 
-### 6.1 數據存儲格式
+### 6.1 數據儲存格式
 
-| 格式 | 讀取速度 | 壓縮率 | 隨機訪問 | 推薦場景 |
-|-----|---------|-------|---------|---------|
-| CSV | 慢 | 無 | 差 | 小數據、調試 |
-| Parquet | 快 | 高 | 好 | 大規模回測 |
-| HDF5 | 快 | 中 | 好 | 時序數據 |
-| Arrow/Feather | 極快 | 中 | 好 | 內存映射 |
+| 格式 | 讀取速度 | 壓縮 | Random access | 建議用途 |
+|------|----------|------|---------------|----------|
+| CSV | 慢 | 無 | 差 | 小數據、debug |
+| Parquet | 快 | 高 | 好 | 大規模 backtest |
+| HDF5 | 快 | 中 | 好 | Time series 數據 |
+| Arrow/Feather | 極快 | 中 | 好 | Memory mapping |
 
 ```python
-# Parquet 示例
+# Parquet example
 import pandas as pd
 
-# 寫入
+# Write
 df.to_parquet('ticks.parquet', compression='snappy')
 
-# 讀取（只加載需要的列）
+# Read (only load needed columns)
 df = pd.read_parquet('ticks.parquet',
                      columns=['timestamp', 'price', 'size'])
 ```
 
-### 6.2 內存優化
+### 6.2 記憶體優化
 
 ```python
 import numpy as np
 
-# 使用更小的數據類型
+# Use smaller data types
 dtype_mapping = {
     'price': np.float32,      # 4 bytes vs 8 bytes
     'size': np.int32,         # 4 bytes
     'side': np.int8,          # 1 byte (0=sell, 1=buy)
 }
 
-# 預分配數組
+# Pre-allocate arrays
 n_ticks = 1_000_000
 prices = np.empty(n_ticks, dtype=np.float32)
 sizes = np.empty(n_ticks, dtype=np.int32)
@@ -690,16 +690,16 @@ from concurrent.futures import ProcessPoolExecutor
 from typing import List
 
 def backtest_single_day(date: str, strategy_params: dict) -> dict:
-    """單日回測"""
-    # 加載當日數據
-    # 運行回測
-    # 返回結果
+    """Single day backtest"""
+    # Load day's data
+    # Run backtest
+    # Return results
     pass
 
 def parallel_backtest(dates: List[str],
                       strategy_params: dict,
                       n_workers: int = 4) -> List[dict]:
-    """並行回測多日"""
+    """Parallel backtest multiple days"""
     with ProcessPoolExecutor(max_workers=n_workers) as executor:
         futures = [
             executor.submit(backtest_single_day, date, strategy_params)
@@ -712,47 +712,47 @@ def parallel_backtest(dates: List[str],
 
 ---
 
-## 七、常見誤區
+## 7. 常見誤解
 
-**誤區一：Tick 回測一定比分鐘回測更準**
+**誤解 1：Tick backtest 一定比 minute backtest 準確**
 
 不一定。如果：
-- 策略本身是分鐘級的決策
-- 沒有正確模擬排隊和滑點
-- 數據質量有問題
+- 策略本身是分鐘級決策
+- Queue 和 slippage 沒有被正確模擬
+- 數據質素有問題
 
-那麼 Tick 回測可能引入更多噪音而非更多精度。
+那麼 tick backtest 可能引入更多 noise，而不是更高的精度。
 
-**誤區二：有了 Tick 數據就能做高頻策略**
+**誤解 2：有 tick 數據就可以做 HFT**
 
-Tick 數據是必要條件，不是充分條件。還需要：
-- 低延遲執行能力
-- 正確的手續費/返傭假設
-- 考慮你的訂單對市場的影響
+Tick 數據是必要條件，但並不充分。你還需要：
+- 低 latency 的執行能力
+- 正確的手續費/rebate 假設
+- 考慮你的 order 對市場的 market impact
 
-**誤區三：忽略數據清洗**
+**誤解 3：忽略數據清洗**
 
 Tick 數據常見問題：
 - 重複記錄
-- 時間戳錯誤
-- 價格異常（如負數、極端跳躍）
+- Timestamp 錯誤
+- 異常價格（負數、極端跳升）
 - 交易所維護期間的垃圾數據
 
 ```python
 def clean_ticks(df: pd.DataFrame) -> pd.DataFrame:
-    """清洗 Tick 數據"""
-    # 去重
+    """Clean tick data"""
+    # Remove duplicates
     df = df.drop_duplicates(subset=['timestamp', 'trade_id'])
 
-    # 排序
+    # Sort
     df = df.sort_values('timestamp')
 
-    # 過濾異常價格
+    # Filter abnormal prices
     median_price = df['price'].median()
     df = df[df['price'].between(median_price * 0.9,
                                  median_price * 1.1)]
 
-    # 過濾異常成交量
+    # Filter abnormal sizes
     df = df[df['size'] > 0]
 
     return df
@@ -760,41 +760,41 @@ def clean_ticks(df: pd.DataFrame) -> pd.DataFrame:
 
 ---
 
-## 八、多智能體視角
+## 8. Multi-Agent 視角
 
-Tick 級回測在多智能體系統中的角色：
+Tick 級 backtest 在 multi-agent 系統中的角色：
 
-![Tick 回測與 Agent 訓練](../assets/tick-backtest-agent-training.svg)
+![Tick Backtest 與 Agent 訓練](../assets/tick-backtest-agent-training.svg)
 
 ---
 
-## 九、實用建議
+## 9. 實戰建議
 
-### 9.1 漸進式採用
+### 9.1 循序漸進採用
 
 ```
-階段 1: 驗證策略邏輯
-  - 使用分鐘/小時數據
-  - 固定滑點假設
-  - 快速迭代
+Stage 1: Validate strategy logic
+  - Use minute/hourly data
+  - Fixed slippage assumption
+  - Fast iteration
 
-階段 2: 精細化執行假設
-  - 使用 Tick 數據回測關鍵信號
-  - 根號滑點模型
-  - 驗證策略是否仍然盈利
+Stage 2: Refine execution assumptions
+  - Use tick data for key signals
+  - Square-root slippage model
+  - Verify strategy is still profitable
 
-階段 3: 完整 Tick 回測
-  - 訂單簿回放
-  - 排隊模擬
-  - 與實盤數據對比校準
+Stage 3: Full tick backtest
+  - Order book replay
+  - Queue simulation
+  - Compare with live data to calibrate
 ```
 
-### 9.2 關鍵指標對比
+### 9.2 關鍵指標比較
 
 ```python
 def compare_granularity(minute_result: dict,
                         tick_result: dict) -> dict:
-    """對比不同粒度回測結果"""
+    """Compare backtest results at different granularities"""
     return {
         'return_diff': tick_result['return'] - minute_result['return'],
         'sharpe_diff': tick_result['sharpe'] - minute_result['sharpe'],
@@ -806,20 +806,20 @@ def compare_granularity(minute_result: dict,
 
 ---
 
-## 十、總結
+## 10. 總結
 
-| 要點 | 說明 |
-|-----|------|
-| 適用場景 | 高頻策略、精確執行模擬、限價單策略 |
-| 核心優勢 | 模擬排隊、精確滑點、路徑依賴邏輯 |
-| 實現方式 | 事件驅動架構 |
-| 關鍵挑戰 | 數據量大、排隊模擬複雜、計算成本高 |
-| 漸進採用 | 先分鐘驗證邏輯，再 Tick 驗證執行 |
+| 重點 | 說明 |
+|------|------|
+| 適用場景 | HFT 策略、精準執行模擬、Limit order 策略 |
+| 核心優勢 | Queue 模擬、精確 slippage、Path-dependent 邏輯 |
+| 實現方式 | Event-driven 架構 |
+| 主要挑戰 | 數據量大、Queue 模擬複雜、計算成本高 |
+| 循序漸進 | 先用 minute 數據驗證邏輯，再用 tick 驗證執行 |
 
 ---
 
 ## 延伸閱讀
 
 - [背景知識：執行模擬器實現](../../Part5-生產與實戰/背景知識/執行模擬器實現.md) - 執行模擬的詳細實現
-- [背景知識：交易所與訂單簿機制](交易所與訂單簿機制.md) - 訂單簿基礎
-- [第 7 課：回測系統的陷阱](../第07課：回測系統的陷阱.md) - 回測常見問題
+- [背景知識：交易所與訂單簿機制](交易所與訂單簿機制.md) - Order book 基礎
+- [第 7 課：回測系統的陷阱](../第07課：回測系統的陷阱.md) - Backtest 常見問題

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 300">
+  <style>
+    .title { font: 600 13px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
+    .level-title { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .limit { font: 700 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .desc { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; }
+  </style>
+
+  <!-- Background -->
+  <rect width="620" height="300" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="310" y="25" text-anchor="middle" class="title">Position Limit Layers</text>
+  <text x="310" y="40" text-anchor="middle" class="subtitle">MULTI-LEVEL POSITION CONSTRAINTS</text>
+
+  <!-- Level 1 -->
+  <rect x="30" y="55" width="135" height="115" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5" rx="2"/>
+  <text x="97" y="75" text-anchor="middle" class="level-title">Level 1</text>
+  <text x="97" y="92" text-anchor="middle" class="level-title">Single Trade</text>
+  <line x1="45" y1="100" x2="150" y2="100" stroke="#60a5fa" stroke-width="1"/>
+  <text x="97" y="120" text-anchor="middle" class="limit">≤ 10%</text>
+  <text x="97" y="140" text-anchor="middle" class="desc">Per trade position</text>
+  <text x="97" y="155" text-anchor="middle" class="desc">No single trade threatens</text>
+
+  <!-- Level 2 -->
+  <rect x="175" y="55" width="135" height="115" fill="#d1fae5" stroke="#10b981" stroke-width="1.5" rx="2"/>
+  <text x="242" y="75" text-anchor="middle" class="level-title">Level 2</text>
+  <text x="242" y="92" text-anchor="middle" class="level-title">Single Symbol</text>
+  <line x1="190" y1="100" x2="295" y2="100" stroke="#10b981" stroke-width="1"/>
+  <text x="242" y="120" text-anchor="middle" class="limit">≤ 20%</text>
+  <text x="242" y="140" text-anchor="middle" class="desc">Total per symbol</text>
+  <text x="242" y="155" text-anchor="middle" class="desc">Avoid single stock risk</text>
+
+  <!-- Level 3 -->
+  <rect x="320" y="55" width="135" height="115" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" rx="2"/>
+  <text x="387" y="75" text-anchor="middle" class="level-title">Level 3</text>
+  <text x="387" y="92" text-anchor="middle" class="level-title">Sector Limit</text>
+  <line x1="335" y1="100" x2="440" y2="100" stroke="#f59e0b" stroke-width="1"/>
+  <text x="387" y="120" text-anchor="middle" class="limit">≤ 30%</text>
+  <text x="387" y="140" text-anchor="middle" class="desc">Per sector exposure</text>
+  <text x="387" y="155" text-anchor="middle" class="desc">Avoid sector concentration</text>
+
+  <!-- Level 4 -->
+  <rect x="465" y="55" width="135" height="115" fill="#fee2e2" stroke="#ef4444" stroke-width="1.5" rx="2"/>
+  <text x="532" y="75" text-anchor="middle" class="level-title">Level 4</text>
+  <text x="532" y="92" text-anchor="middle" class="level-title">Total Position</text>
+  <line x1="480" y1="100" x2="585" y2="100" stroke="#ef4444" stroke-width="1"/>
+  <text x="532" y="120" text-anchor="middle" class="limit">≤ 80%</text>
+  <text x="532" y="140" text-anchor="middle" class="desc">Total portfolio exposure</text>
+  <text x="532" y="155" text-anchor="middle" class="desc">Reserve cash for extremes</text>
+
+  <!-- Bottom summary -->
+  <rect x="30" y="190" width="570" height="95" fill="#f3f4f6" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,2" rx="2"/>
+  <text x="310" y="215" text-anchor="middle" class="level-title">Position Limit Pyramid</text>
+  <text x="310" y="238" text-anchor="middle" class="desc">Single 10% → Symbol 20% → Sector 30% → Total 80%</text>
+  <text x="310" y="258" text-anchor="middle" class="desc">Progressive limits ensure no single failure is fatal</text>
+  <text x="310" y="278" text-anchor="middle" class="desc">20% cash reserve = last line of defense</text>
+</svg>

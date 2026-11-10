@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 380">
+  <style>
+    .title { font: 600 14px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
+    .section-title { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .section-sub { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; }
+    .item { font: 400 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .agent-title { font: 700 14px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .agent-sub { font: 500 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1a1a1a"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="680" height="380" fill="#fff"/>
+
+  <!-- Main container -->
+  <rect x="30" y="20" width="620" height="340" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+
+  <!-- Center: Monitor Agent box -->
+  <rect x="230" y="100" width="220" height="90" fill="#67e8f9" stroke="#1a1a1a" stroke-width="2"/>
+  <text x="340" y="135" text-anchor="middle" class="agent-title">Monitor Agent</text>
+  <text x="340" y="155" text-anchor="middle" class="agent-sub">System Health Guardian</text>
+  <text x="340" y="175" text-anchor="middle" class="section-sub">WATCHDOG FOR ALL AGENTS</text>
+
+  <!-- Left: Inputs -->
+  <rect x="45" y="70" width="145" height="150" fill="#99f6e4" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="45" y="70" width="145" height="22" fill="#5eead4" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="118" y="85" text-anchor="middle" class="section-title">INPUT</text>
+
+  <text x="55" y="108" class="item">- Agent heartbeats</text>
+  <text x="55" y="126" class="item">- System metrics</text>
+  <text x="55" y="144" class="item">- Execution logs</text>
+  <text x="55" y="162" class="item">- External services</text>
+
+  <!-- Arrow: Input to Monitor -->
+  <line x1="190" y1="145" x2="225" y2="145" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Right: Outputs -->
+  <rect x="490" y="70" width="145" height="150" fill="#fbcfe8" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="490" y="70" width="145" height="22" fill="#f9a8d4" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="563" y="85" text-anchor="middle" class="section-title">OUTPUT</text>
+
+  <text x="500" y="108" class="item">- Health reports</text>
+  <text x="500" y="126" class="item">- Alert notifications</text>
+  <text x="500" y="144" class="item">- Auto-recovery cmds</text>
+
+  <!-- Arrow: Monitor to Output -->
+  <line x1="450" y1="145" x2="485" y2="145" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Bottom: Capabilities -->
+  <rect x="150" y="240" width="380" height="105" fill="#fef08a" stroke="#1a1a1a" stroke-width="1.5"/>
+  <rect x="150" y="240" width="380" height="22" fill="#fde047" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="340" y="255" text-anchor="middle" class="section-title">CAPABILITIES</text>
+
+  <text x="170" y="280" class="item">- Detect agent status</text>
+  <text x="170" y="300" class="item">- Auto-restart failed agents</text>
+  <text x="350" y="280" class="item">- Trigger circuit breakers</text>
+  <text x="350" y="300" class="item">- State consistency checks</text>
+
+  <!-- Arrow: Monitor to Capabilities -->
+  <line x1="340" y1="190" x2="340" y2="235" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Decorative elements -->
+  <circle cx="340" cy="215" r="5" fill="#67e8f9" stroke="#1a1a1a" stroke-width="1"/>
+</svg>

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#1a1a1a"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#60a5fa"/>
+    </marker>
+  </defs>
+
+  <rect width="600" height="420" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="300" y="28" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="14" font-weight="600" fill="#1a1a1a" text-anchor="middle">MULTI-AGENT DYNAMIC GATING</text>
+  <text x="300" y="45" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="10" fill="#666" text-anchor="middle">REGIME 自適應架構</text>
+
+  <!-- Outer frame: Multi-Agent System -->
+  <rect x="40" y="60" width="520" height="330" fill="none" stroke="#ccc" stroke-width="1" stroke-dasharray="6,3" rx="4"/>
+  <text x="55" y="80" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="10" font-weight="500" fill="#666">MULTI-AGENT SYSTEM</text>
+
+  <!-- Agent boxes row -->
+  <!-- Bull Agent -->
+  <rect x="70" y="100" width="120" height="80" fill="#5eead4" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="130" y="135" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="12" font-weight="600" fill="#1a1a1a" text-anchor="middle">BULL AGENT</text>
+  <text x="130" y="160" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="8" fill="#666" text-anchor="middle">Trend Following</text>
+
+  <!-- Bear Agent -->
+  <rect x="240" y="100" width="120" height="80" fill="#f9a8d4" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="300" y="135" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="12" font-weight="600" fill="#1a1a1a" text-anchor="middle">BEAR AGENT</text>
+  <text x="300" y="160" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="8" fill="#666" text-anchor="middle">防守／沽空</text>
+
+  <!-- Sideways Agent -->
+  <rect x="410" y="100" width="120" height="80" fill="#fde047" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="470" y="135" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="12" font-weight="600" fill="#1a1a1a" text-anchor="middle">SIDEWAYS AGENT</text>
+  <text x="470" y="160" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="8" fill="#666" text-anchor="middle">Mean Reversion</text>
+
+  <!-- Ellipsis for more agents -->
+  <text x="555" y="145" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="16" fill="#999">...</text>
+
+  <!-- Arrows from agents to gating layer -->
+  <path d="M130,180 L130,220 L260,240" stroke="#1a1a1a" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+  <path d="M300,180 L300,230" stroke="#1a1a1a" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+  <path d="M470,180 L470,220 L340,240" stroke="#1a1a1a" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Dynamic Gating Layer -->
+  <rect x="160" y="240" width="280" height="70" fill="#67e8f9" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="300" y="273" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="12" font-weight="600" fill="#1a1a1a" text-anchor="middle">DYNAMIC GATING 層</text>
+  <text x="300" y="295" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" fill="#666" text-anchor="middle">按 Regime 分配權重</text>
+
+  <!-- Market State input arrow -->
+  <rect x="470" y="255" width="80" height="40" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5" rx="2"/>
+  <text x="510" y="278" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="10" font-weight="500" fill="#60a5fa" text-anchor="middle">REGIME</text>
+  <path d="M470,275 L445,275" stroke="#60a5fa" stroke-width="2" fill="none" marker-end="url(#arrowBlue)"/>
+
+  <!-- Arrow from gating to final decision -->
+  <path d="M300,310 L300,340" stroke="#1a1a1a" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Final Decision box -->
+  <rect x="200" y="350" width="200" height="50" fill="#10b981" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="300" y="380" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="12" font-weight="600" fill="#fff" text-anchor="middle">最終交易決策</text>
+
+  <!-- Advantages annotation -->
+  <text x="80" y="250" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="8" fill="#666" text-anchor="start">優點：</text>
+  <text x="80" y="264" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="8" fill="#999" text-anchor="start">- 專門化</text>
+  <text x="80" y="278" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="8" fill="#999" text-anchor="start">- 避免 Overfitting</text>
+  <text x="80" y="292" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="8" fill="#999" text-anchor="start">- 動態適應</text>
+</svg>

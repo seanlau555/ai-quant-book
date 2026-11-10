@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340">
+  <style>
+    .title { font: 600 13px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
+    .section-title { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .item { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .desc { font: 400 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; }
+  </style>
+
+  <!-- Background -->
+  <rect width="600" height="340" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="300" y="25" text-anchor="middle" class="title">Regime Detection Evaluation Metrics</text>
+  <text x="300" y="40" text-anchor="middle" class="subtitle">THREE DIMENSIONS OF QUALITY</text>
+
+  <!-- Section 1: Detection Quality -->
+  <rect x="30" y="55" width="170" height="120" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5" rx="2"/>
+  <text x="115" y="75" text-anchor="middle" class="section-title">1. Detection Quality</text>
+  <line x1="45" y1="85" x2="185" y2="85" stroke="#60a5fa" stroke-width="1"/>
+  <text x="40" y="105" class="item">State Duration</text>
+  <text x="40" y="118" class="desc">How long does each state last?</text>
+  <text x="40" y="131" class="desc">Too short = over-switching</text>
+  <text x="40" y="150" class="item">State Distribution</text>
+  <text x="40" y="163" class="desc">Is proportion reasonable?</text>
+
+  <!-- Section 2: Switching Quality -->
+  <rect x="215" y="55" width="170" height="120" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" rx="2"/>
+  <text x="300" y="75" text-anchor="middle" class="section-title">2. Switching Quality</text>
+  <line x1="230" y1="85" x2="370" y2="85" stroke="#f59e0b" stroke-width="1"/>
+  <text x="225" y="105" class="item">Switching Lag</text>
+  <text x="225" y="118" class="desc">Days from actual change</text>
+  <text x="225" y="131" class="desc">to detection</text>
+  <text x="225" y="150" class="item">False Switch Rate</text>
+  <text x="225" y="163" class="desc">% that reverse immediately</text>
+
+  <!-- Section 3: Economic Value -->
+  <rect x="400" y="55" width="170" height="120" fill="#d1fae5" stroke="#10b981" stroke-width="1.5" rx="2"/>
+  <text x="485" y="75" text-anchor="middle" class="section-title">3. Economic Value</text>
+  <line x1="415" y1="85" x2="555" y2="85" stroke="#10b981" stroke-width="1"/>
+  <text x="410" y="105" class="item">With vs Without</text>
+  <text x="410" y="118" class="desc">Return improvement</text>
+  <text x="410" y="150" class="item">Net Value-Add</text>
+  <text x="410" y="163" class="desc">Improvement - Switch cost</text>
+
+  <!-- Bottom formula box -->
+  <rect x="30" y="195" width="540" height="70" fill="#f3f4f6" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,2" rx="2"/>
+  <text x="300" y="220" text-anchor="middle" class="section-title">Key Insight</text>
+  <text x="300" y="240" text-anchor="middle" class="item">Regime detection isn't the goal — improving strategy returns is.</text>
+  <text x="300" y="255" text-anchor="middle" class="desc">Evaluate by: "Did it help the strategy make more money?"</text>
+
+  <!-- Arrow indicators -->
+  <rect x="30" y="280" width="540" height="45" fill="#fff" stroke="#1a1a1a" stroke-width="1" rx="2"/>
+  <text x="50" y="300" class="item">Good Detection:</text>
+  <text x="50" y="315" class="desc">Duration > 10 days | Lag &lt; 3 days | False rate &lt; 20% | Net value > 0</text>
+</svg>

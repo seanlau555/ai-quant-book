@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#1a1a1a"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#60a5fa"/>
+    </marker>
+  </defs>
+
+  <rect width="600" height="400" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="300" y="28" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="14" font-weight="600" fill="#1a1a1a" text-anchor="middle">CHAIN-OF-ALPHA FRAMEWORK</text>
+  <text x="300" y="45" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="10" fill="#666" text-anchor="middle">LLM 驅動的 ALPHA 發掘</text>
+
+  <!-- Outer frame -->
+  <rect x="50" y="60" width="500" height="310" fill="none" stroke="#ccc" stroke-width="1" stroke-dasharray="6,3" rx="4"/>
+
+  <!-- Step 1: Market Data (top-left) -->
+  <rect x="80" y="90" width="130" height="70" fill="#67e8f9" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="145" y="125" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="12" font-weight="600" fill="#1a1a1a" text-anchor="middle">市場數據</text>
+
+  <!-- Arrow 1: Market Data -> LLM -->
+  <path d="M210,125 L260,125" stroke="#1a1a1a" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Step 2: LLM Factor Generation (top-right) -->
+  <rect x="270" y="80" width="150" height="90" fill="#f9a8d4" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="345" y="110" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="12" font-weight="600" fill="#1a1a1a" text-anchor="middle">LLM FACTOR</text>
+  <text x="345" y="128" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="11" font-weight="600" fill="#1a1a1a" text-anchor="middle">生成</text>
+  <text x="345" y="155" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="8" fill="#999" text-anchor="middle">候選 Factor</text>
+
+  <!-- Arrow 2: LLM -> Backtest (down) -->
+  <path d="M345,170 L345,210" stroke="#1a1a1a" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Step 3: Backtest Evaluation (middle-right) -->
+  <rect x="270" y="220" width="150" height="70" fill="#5eead4" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="345" y="255" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="12" font-weight="600" fill="#1a1a1a" text-anchor="middle">BACKTEST 評估</text>
+
+  <!-- Arrow 3: Backtest -> Refinement (left) -->
+  <path d="M270,255 L220,255" stroke="#1a1a1a" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Step 4: Refinement (middle-left) -->
+  <rect x="80" y="220" width="130" height="70" fill="#fde047" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="145" y="255" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="12" font-weight="600" fill="#1a1a1a" text-anchor="middle">優化</text>
+
+  <!-- Feedback loop arrow: Refinement -> LLM (up and right) -->
+  <path d="M145,220 L145,190 Q145,180 155,180 L270,180 Q280,180 280,170 L280,160" stroke="#60a5fa" stroke-width="2" fill="none" marker-end="url(#arrowBlue)" stroke-dasharray="4,2"/>
+
+  <!-- Feedback label -->
+  <rect x="180" y="172" width="80" height="18" fill="#dbeafe" stroke="#60a5fa" stroke-width="1" rx="2"/>
+  <text x="220" y="185" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="8" font-weight="500" fill="#60a5fa" text-anchor="middle">回饋</text>
+
+  <!-- Output arrow -->
+  <path d="M420,255 L480,255" stroke="#1a1a1a" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Output: Alpha Factors -->
+  <rect x="485" y="235" width="60" height="45" fill="#10b981" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
+  <text x="515" y="255" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">Alpha</text>
+  <text x="515" y="270" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="8" fill="#fff" text-anchor="middle">Factor</text>
+
+  <!-- Key feature labels -->
+  <text x="300" y="330" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="10" font-weight="600" fill="#1a1a1a" text-anchor="middle">主要 FEATURE</text>
+
+  <circle cx="100" cy="350" r="3" fill="#f9a8d4"/>
+  <text x="110" y="354" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" fill="#666">全自動（無人工介入）</text>
+
+  <circle cx="310" cy="350" r="3" fill="#60a5fa"/>
+  <text x="320" y="354" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" fill="#666">迭代</text>
+
+  <circle cx="410" cy="350" r="3" fill="#67e8f9"/>
+  <text x="420" y="354" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="9" fill="#666">僅市場數據</text>
+
+  <!-- Source reference -->
+  <text x="300" y="385" font-family="'SF Mono', 'Menlo', 'Monaco', monospace" font-size="8" fill="#999" text-anchor="middle">來源：arXiv 2508.06312 (2025)</text>
+</svg>
