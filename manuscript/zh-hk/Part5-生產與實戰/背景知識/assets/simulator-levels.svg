@@ -1,19 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420">
   <style>
-    .title { font: 600 14px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
-    .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
-    .level-num { font: 700 14px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #fff; }
-    .level-title { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
-    .level-sub { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; }
-    .desc { font: 400 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
-    .arrow-label { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; }
+    .title { font: 600 14px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #1a1a1a; }
+    .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #666; letter-spacing: 0.5px; }
+    .level-num { font: 700 14px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #fff; }
+    .level-title { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #1a1a1a; }
+    .level-sub { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #666; }
+    .desc { font: 400 10px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #1a1a1a; }
+    .arrow-label { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #666; }
   </style>
 
   <!-- Background -->
   <rect width="680" height="420" fill="#fff"/>
 
   <!-- Title -->
-  <text x="340" y="28" text-anchor="middle" class="title">Execution Simulator Levels</text>
+  <text x="340" y="28" text-anchor="middle" class="title">Execution Simulator 層級</text>
   <text x="340" y="44" text-anchor="middle" class="subtitle">FROM SIMPLE TO PRODUCTION-GRADE</text>
 
   <!-- Main container -->
@@ -38,40 +38,40 @@
   <rect x="80" y="325" width="40" height="65" fill="#67e8f9" stroke="#1a1a1a" stroke-width="1"/>
   <text x="100" y="363" text-anchor="middle" class="level-num">1</text>
 
-  <text x="140" y="345" class="level-title">Fixed Slippage Model</text>
-  <text x="140" y="362" class="desc">Deduct fixed percentage per trade (e.g., 0.1%)</text>
-  <text x="140" y="378" class="desc" style="fill:#666">Simple but inaccurate</text>
+  <text x="140" y="345" class="level-title">固定 Slippage 模型</text>
+  <text x="140" y="362" class="desc">每筆交易扣除固定百分比（如 0.1%）</text>
+  <text x="140" y="378" class="desc" style="fill:#666">簡單但不準確</text>
 
   <!-- Level 2: Square Root Impact -->
   <rect x="80" y="250" width="520" height="65" fill="#99f6e4" stroke="#1a1a1a" stroke-width="1.5"/>
   <rect x="80" y="250" width="40" height="65" fill="#5eead4" stroke="#1a1a1a" stroke-width="1"/>
   <text x="100" y="288" text-anchor="middle" class="level-num">2</text>
 
-  <text x="140" y="270" class="level-title">Square Root Impact Model</text>
+  <text x="140" y="270" class="level-title">平方根 Impact 模型</text>
   <text x="140" y="287" class="desc">Slippage = f(Order Size, Volatility, ADV)</text>
-  <text x="140" y="303" class="desc" style="fill:#666">Medium complexity, suitable for daily strategies</text>
+  <text x="140" y="303" class="desc" style="fill:#666">複雜度中等，適合日頻策略</text>
 
   <!-- Level 3: Order Book Replay -->
   <rect x="80" y="175" width="520" height="65" fill="#fef08a" stroke="#1a1a1a" stroke-width="1.5"/>
   <rect x="80" y="175" width="40" height="65" fill="#fde047" stroke="#1a1a1a" stroke-width="1"/>
   <text x="100" y="213" text-anchor="middle" class="level-num">3</text>
 
-  <text x="140" y="195" class="level-title">Order Book Replay Model</text>
-  <text x="140" y="212" class="desc">Simulate order penetration using historical L2 data</text>
-  <text x="140" y="228" class="desc" style="fill:#666">High accuracy, requires Tick data</text>
+  <text x="140" y="195" class="level-title">Order Book Replay 模型</text>
+  <text x="140" y="212" class="desc">以歷史 L2 數據模擬訂單穿透</text>
+  <text x="140" y="228" class="desc" style="fill:#666">準確度高，需要 Tick 數據</text>
 
   <!-- Level 4: Full Simulation (top - most complex) -->
   <rect x="80" y="100" width="520" height="65" fill="#fbcfe8" stroke="#1a1a1a" stroke-width="1.5"/>
   <rect x="80" y="100" width="40" height="65" fill="#f9a8d4" stroke="#1a1a1a" stroke-width="1"/>
   <text x="100" y="138" text-anchor="middle" class="level-num">4</text>
 
-  <text x="140" y="120" class="level-title">Full Simulation Environment</text>
-  <text x="140" y="137" class="desc">Simulates queuing, partial fills, cancellations</text>
-  <text x="140" y="153" class="desc" style="fill:#666">Closest to live trading, highest development cost</text>
+  <text x="140" y="120" class="level-title">完整模擬環境</text>
+  <text x="140" y="137" class="desc">模擬排隊、部分成交、撤單</text>
+  <text x="140" y="153" class="desc" style="fill:#666">最接近實盤，開發成本最高</text>
 
   <!-- Use case indicators on right side -->
-  <text x="520" y="358" class="desc">Quick strategy screening</text>
-  <text x="520" y="283" class="desc">Daily/Weekly strategies</text>
-  <text x="520" y="208" class="desc">Minute/Second strategies</text>
-  <text x="520" y="133" class="desc">HFT/Market making</text>
+  <text x="520" y="358" class="desc">快速策略篩選</text>
+  <text x="520" y="283" class="desc">日/週頻策略</text>
+  <text x="520" y="208" class="desc">分鐘/秒級策略</text>
+  <text x="520" y="133" class="desc">HFT/做市</text>
 </svg>

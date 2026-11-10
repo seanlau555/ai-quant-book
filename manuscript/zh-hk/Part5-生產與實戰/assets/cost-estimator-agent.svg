@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 340">
   <style>
-    .title { font: 600 13px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
-    .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
-    .section-title { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
-    .item { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
-    .note { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #fff; }
+    .title { font: 600 13px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #1a1a1a; }
+    .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #666; letter-spacing: 0.5px; }
+    .section-title { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #1a1a1a; }
+    .item { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #1a1a1a; }
+    .note { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #fff; }
   </style>
 
   <!-- Background -->
@@ -20,42 +20,42 @@
   <!-- Responsibility 1 -->
   <rect x="45" y="65" width="255" height="75" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5" rx="2"/>
   <rect x="45" y="65" width="255" height="22" fill="#60a5fa" rx="2"/>
-  <text x="172" y="81" text-anchor="middle" class="note">Role 1: Cost Estimation</text>
-  <text x="55" y="102" class="item">- Receive order request (symbol, dir, qty)</text>
-  <text x="55" y="117" class="item">- Query current liquidity data</text>
-  <text x="55" y="132" class="item">- Estimate cost (slippage+impact+opp)</text>
+  <text x="172" y="81" text-anchor="middle" class="note">角色 1：成本估算</text>
+  <text x="55" y="102" class="item">- 接收訂單請求（symbol, dir, qty）</text>
+  <text x="55" y="117" class="item">- 查詢當前流動性數據</text>
+  <text x="55" y="132" class="item">- 估算成本（slippage+impact+opp）</text>
 
   <!-- Responsibility 2 -->
   <rect x="320" y="65" width="255" height="75" fill="#d1fae5" stroke="#10b981" stroke-width="1.5" rx="2"/>
   <rect x="320" y="65" width="255" height="22" fill="#10b981" rx="2"/>
-  <text x="447" y="81" text-anchor="middle" class="note">Role 2: Tradability Check</text>
-  <text x="330" y="102" class="item">- Calculate Net Alpha = Gross - Cost</text>
-  <text x="330" y="117" class="item">- If Net Alpha &lt; threshold, no trade</text>
-  <text x="330" y="132" class="item">- Output tradability score</text>
+  <text x="447" y="81" text-anchor="middle" class="note">角色 2：可交易性檢查</text>
+  <text x="330" y="102" class="item">- 計算 Net Alpha = Gross - Cost</text>
+  <text x="330" y="117" class="item">- 若 Net Alpha &lt; 閾值，不交易</text>
+  <text x="330" y="132" class="item">- 輸出可交易性評分</text>
 
   <!-- Responsibility 3 -->
   <rect x="45" y="150" width="255" height="75" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" rx="2"/>
   <rect x="45" y="150" width="255" height="22" fill="#f59e0b" rx="2"/>
-  <text x="172" y="166" text-anchor="middle" class="note">Role 3: Execution Advice</text>
-  <text x="55" y="187" class="item">- Recommend strategy (single vs split)</text>
-  <text x="55" y="202" class="item">- Recommend order type (market vs limit)</text>
-  <text x="55" y="217" class="item">- Recommend time window</text>
+  <text x="172" y="166" text-anchor="middle" class="note">角色 3：Execution 建議</text>
+  <text x="55" y="187" class="item">- 建議策略（單筆 vs 拆單）</text>
+  <text x="55" y="202" class="item">- 建議訂單類型（market vs limit）</text>
+  <text x="55" y="217" class="item">- 建議時間窗口</text>
 
   <!-- Responsibility 4 -->
   <rect x="320" y="150" width="255" height="75" fill="#fce7f3" stroke="#f9a8d4" stroke-width="1.5" rx="2"/>
   <rect x="320" y="150" width="255" height="22" fill="#f9a8d4" rx="2"/>
-  <text x="447" y="166" text-anchor="middle" class="note">Role 4: Cost Attribution</text>
-  <text x="330" y="187" class="item">- Post-trade: estimated vs actual cost</text>
-  <text x="330" y="202" class="item">- Update cost model parameters</text>
-  <text x="330" y="217" class="item">- Feedback to Signal Agent</text>
+  <text x="447" y="166" text-anchor="middle" class="note">角色 4：成本歸因</text>
+  <text x="330" y="187" class="item">- 交易後：估算 vs 實際成本</text>
+  <text x="330" y="202" class="item">- 更新成本模型參數</text>
+  <text x="330" y="217" class="item">- 回饋至 Signal Agent</text>
 
   <!-- Collaboration flow -->
   <rect x="45" y="240" width="530" height="80" fill="#e0e7ff" stroke="#818cf8" stroke-width="1.5" rx="2"/>
-  <text x="310" y="260" text-anchor="middle" class="section-title">Collaboration with Signal Agent</text>
+  <text x="310" y="260" text-anchor="middle" class="section-title">與 Signal Agent 協作</text>
   <text x="100" y="285" class="item">Signal Agent</text>
-  <text x="200" y="285" class="item">→ Send signal →</text>
+  <text x="200" y="285" class="item">→ 發送信號 →</text>
   <text x="310" y="285" class="item">Cost Estimator</text>
-  <text x="420" y="285" class="item">→ Return cost →</text>
-  <text x="520" y="285" class="item">Decision</text>
-  <text x="310" y="308" text-anchor="middle" class="item">if strength &lt; cost: abandon  |  elif strength &lt; 2×cost: reduce  |  else: execute</text>
+  <text x="420" y="285" class="item">→ 返回成本 →</text>
+  <text x="520" y="285" class="item">決策</text>
+  <text x="310" y="308" text-anchor="middle" class="item">if strength &lt; cost: 放棄  |  elif strength &lt; 2×cost: 減倉  |  else: 執行</text>
 </svg>

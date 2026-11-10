@@ -5,19 +5,19 @@
     </marker>
   </defs>
   <style>
-    .title { font: 600 13px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
-    .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
-    .agent-name { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
-    .decision { font: 600 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
-    .action { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; }
+    .title { font: 600 13px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #1a1a1a; }
+    .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #666; letter-spacing: 0.5px; }
+    .agent-name { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #1a1a1a; }
+    .decision { font: 600 10px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #1a1a1a; }
+    .action { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #666; }
   </style>
 
   <!-- Background -->
   <rect width="620" height="280" fill="#fff"/>
 
   <!-- Title -->
-  <text x="310" y="25" text-anchor="middle" class="title">Risk Agent Review Flow</text>
-  <text x="310" y="40" text-anchor="middle" class="subtitle">VETO POWER ARCHITECTURE</text>
+  <text x="310" y="25" text-anchor="middle" class="title">Risk Agent 審核流程</text>
+  <text x="310" y="40" text-anchor="middle" class="subtitle">否決權架構</text>
 
   <!-- Input Agents (left side) -->
   <rect x="30" y="70" width="100" height="35" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.5" rx="2"/>
@@ -37,7 +37,7 @@
   <!-- Risk Agent (center) -->
   <rect x="210" y="100" width="120" height="65" fill="#fee2e2" stroke="#ef4444" stroke-width="2" rx="3"/>
   <text x="270" y="125" text-anchor="middle" class="agent-name">Risk Agent</text>
-  <text x="270" y="145" text-anchor="middle" class="action">Veto Power</text>
+  <text x="270" y="145" text-anchor="middle" class="action">否決權</text>
 
   <!-- Decision branches -->
   <line x1="330" y1="115" x2="400" y2="85" stroke="#666" stroke-width="1.5" marker-end="url(#arrow-en)"/>
@@ -45,13 +45,13 @@
 
   <!-- Approve/Reduce path -->
   <rect x="410" y="60" width="90" height="50" fill="#d1fae5" stroke="#10b981" stroke-width="1.5" rx="2"/>
-  <text x="455" y="82" text-anchor="middle" class="decision">Approve/Reduce</text>
-  <text x="455" y="100" text-anchor="middle" class="action">Continue</text>
+  <text x="455" y="82" text-anchor="middle" class="decision">批准/縮減</text>
+  <text x="455" y="100" text-anchor="middle" class="action">繼續</text>
 
   <!-- Reject path -->
   <rect x="410" y="155" width="90" height="50" fill="#fee2e2" stroke="#ef4444" stroke-width="1.5" rx="2"/>
-  <text x="455" y="177" text-anchor="middle" class="decision">Reject</text>
-  <text x="455" y="195" text-anchor="middle" class="action">Log &amp; Feedback</text>
+  <text x="455" y="177" text-anchor="middle" class="decision">拒絕</text>
+  <text x="455" y="195" text-anchor="middle" class="action">記錄及回饋</text>
 
   <!-- Execution Agent -->
   <line x1="500" y1="85" x2="530" y2="85" stroke="#666" stroke-width="1.5" marker-end="url(#arrow-en)"/>
@@ -61,6 +61,6 @@
 
   <!-- Bottom note -->
   <rect x="30" y="220" width="570" height="45" fill="#f3f4f6" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,2" rx="2"/>
-  <text x="310" y="240" text-anchor="middle" class="action">Risk Agent is the mandatory gateway for all trade requests</text>
-  <text x="310" y="255" text-anchor="middle" class="action">Every Agent request must pass Risk Agent review before execution</text>
+  <text x="310" y="240" text-anchor="middle" class="action">Risk Agent 是所有交易請求的必經關卡</text>
+  <text x="310" y="255" text-anchor="middle" class="action">每個 Agent 請求在 execution 前都必須通過 Risk Agent 審核</text>
 </svg>

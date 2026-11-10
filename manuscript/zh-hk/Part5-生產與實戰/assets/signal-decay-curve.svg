@@ -5,19 +5,19 @@
     </marker>
   </defs>
   <style>
-    .title { font: 600 13px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
-    .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
-    .axis-label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; }
-    .tick-label { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; }
-    .legend { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
-    .warning { font: 600 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #ef4444; }
+    .title { font: 600 13px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #1a1a1a; }
+    .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #666; letter-spacing: 0.5px; }
+    .axis-label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #666; }
+    .tick-label { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #666; }
+    .legend { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #1a1a1a; }
+    .warning { font: 600 10px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #ef4444; }
   </style>
 
   <!-- Background -->
   <rect width="620" height="320" fill="#fff"/>
 
   <!-- Title -->
-  <text x="310" y="25" text-anchor="middle" class="title">Signal Decay Curve</text>
+  <text x="310" y="25" text-anchor="middle" class="title">信號衰減曲線</text>
   <text x="310" y="40" text-anchor="middle" class="subtitle">ALPHA DECAY VS. EXECUTION DELAY</text>
 
   <!-- Chart area -->
@@ -25,7 +25,7 @@
 
   <!-- Y-axis -->
   <line x1="80" y1="55" x2="80" y2="235" stroke="#666" stroke-width="1.5"/>
-  <text x="45" y="145" text-anchor="middle" transform="rotate(-90, 45, 145)" class="axis-label">Signal Strength</text>
+  <text x="45" y="145" text-anchor="middle" transform="rotate(-90, 45, 145)" class="axis-label">信號強度</text>
 
   <!-- Y-axis ticks -->
   <line x1="75" y1="70" x2="80" y2="70" stroke="#666" stroke-width="1"/>
@@ -68,10 +68,10 @@
   <rect x="80" y="265" width="440" height="45" fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1" rx="2"/>
 
   <line x1="95" y1="280" x2="130" y2="280" stroke="#ef4444" stroke-width="2"/>
-  <text x="140" y="284" class="legend">HF signal (millisecond decay)</text>
+  <text x="140" y="284" class="legend">HF 信號（毫秒級衰減）</text>
 
   <line x1="300" y1="280" x2="335" y2="280" stroke="#f59e0b" stroke-width="2"/>
-  <text x="345" y="284" class="legend">MF signal (minute decay)</text>
+  <text x="345" y="284" class="legend">MF 信號（分鐘級衰減）</text>
 
-  <text x="310" y="302" text-anchor="middle" class="warning">Problem: If execution delay > signal half-life, Alpha is gone</text>
+  <text x="310" y="302" text-anchor="middle" class="warning">問題：若 execution delay > 信號半衰期，Alpha 即消失</text>
 </svg>

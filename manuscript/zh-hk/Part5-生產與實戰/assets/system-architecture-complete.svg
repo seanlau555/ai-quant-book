@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560">
   <defs>
     <style>
-      .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; letter-spacing: 0.5px; }
-      .label-small { font: 400 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
-      .box-text { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
-      .box-text-en { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
-      .title { font: 600 16px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
-      .section-title { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
+      .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #1a1a1a; text-anchor: middle; letter-spacing: 0.5px; }
+      .label-small { font: 400 9px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #666; text-anchor: middle; }
+      .box-text { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #1a1a1a; text-anchor: middle; }
+      .box-text-en { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #666; text-anchor: middle; }
+      .title { font: 600 16px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #1a1a1a; text-anchor: middle; }
+      .section-title { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #666; text-anchor: middle; }
     </style>
     <marker id="arch-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
       <polygon points="0 0, 8 3, 0 6" fill="#1a1a1a"/>
@@ -20,12 +20,12 @@
   <rect width="800" height="560" fill="#fff"/>
 
   <!-- Title -->
-  <text x="400" y="30" class="title">Multi-Agent Trading System Architecture</text>
+  <text x="400" y="30" class="title">Multi-Agent 交易系統架構</text>
   <text x="400" y="47" class="label-small">COMPLETE SYSTEM OVERVIEW</text>
 
   <!-- Main Loop Container -->
   <rect x="30" y="60" width="740" height="440" fill="none" stroke="#ccc" stroke-width="1" stroke-dasharray="6,3" rx="4"/>
-  <text x="400" y="78" class="section-title">Main Loop (Daily Execution)</text>
+  <text x="400" y="78" class="section-title">主循環（每日 Execution）</text>
 
   <!-- Data Manager - Top -->
   <rect x="320" y="95" width="160" height="50" fill="#67e8f9" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
@@ -59,7 +59,7 @@
 
   <!-- Strategy 3 - Defensive -->
   <rect x="520" y="255" width="160" height="45" fill="#fde047" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
-  <text x="600" y="275" class="box-text">Defensive</text>
+  <text x="600" y="275" class="box-text">防守型</text>
   <text x="600" y="290" class="box-text-en">RISK-OFF STRATEGY</text>
 
   <!-- Converge arrows to Signal Agent -->
@@ -119,9 +119,9 @@
   <!-- Data flow legend -->
   <g transform="translate(540, 510)">
     <line x1="0" y1="10" x2="30" y2="10" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arch-arrow)"/>
-    <text x="40" y="14" class="label-small">Data/Command Flow</text>
+    <text x="40" y="14" class="label-small">數據/指令流</text>
     <line x1="0" y1="30" x2="30" y2="30" stroke="#60a5fa" stroke-width="1" stroke-dasharray="4,2"/>
-    <text x="40" y="34" class="label-small">Monitor/Feedback</text>
+    <text x="40" y="34" class="label-small">Monitor/回饋</text>
   </g>
 
 </svg>

@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420">
   <defs>
     <style>
-      .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; letter-spacing: 0.5px; }
-      .box-text { font: 600 14px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
-      .box-text-small { font: 500 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
-      .title { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; letter-spacing: 1px; }
-      .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
-      .condition { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; }
+      .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #666; text-anchor: middle; letter-spacing: 0.5px; }
+      .box-text { font: 600 14px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #1a1a1a; text-anchor: middle; }
+      .box-text-small { font: 500 11px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #1a1a1a; text-anchor: middle; }
+      .title { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #1a1a1a; letter-spacing: 1px; }
+      .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #666; text-anchor: middle; }
+      .condition { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #666; }
     </style>
     <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
       <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
@@ -42,11 +42,11 @@
 
   <!-- Title -->
   <text x="340" y="28" class="title" text-anchor="middle">FOUR-STATE REGIME MODEL</text>
-  <text x="340" y="44" class="subtitle">Improved Four-State Market Model</text>
+  <text x="340" y="44" class="subtitle">改良四狀態市場模型</text>
 
   <!-- Comparison labels -->
   <text x="100" y="75" class="label" text-anchor="start" style="fill: #999;">TRADITIONAL 3-STATE</text>
-  <text x="100" y="88" class="label" text-anchor="start">Traditional Three-State Model</text>
+  <text x="100" y="88" class="label" text-anchor="start">傳統三狀態模型</text>
 
   <!-- Traditional 3-state model (simplified, struck through) -->
   <g opacity="0.5">
@@ -68,11 +68,11 @@
     <text x="485" y="125" class="box-text-small" style="fill: #6b7280;">Crisis</text>
   </g>
   <line x1="100" y1="120" x2="530" y2="120" stroke="#ef4444" stroke-width="1.5" opacity="0.6"/>
-  <text x="560" y="125" class="label" style="fill: #ef4444;">Forced Classification</text>
+  <text x="560" y="125" class="label" style="fill: #ef4444;">強制分類</text>
 
   <!-- Improved 4-state model label -->
   <text x="100" y="180" class="label" text-anchor="start" style="fill: #10b981;">IMPROVED 4-STATE</text>
-  <text x="100" y="193" class="label" text-anchor="start" style="fill: #10b981;">Improved Four-State Model</text>
+  <text x="100" y="193" class="label" text-anchor="start" style="fill: #10b981;">改良四狀態模型</text>
 
   <!-- Main horizontal flow: Trending <-> Uncertain <-> Mean-Reverting -->
   <!-- Trending State -->
@@ -123,24 +123,24 @@
 
   <!-- Crisis recovery arrow (upward) -->
   <path d="M 280 355 Q 230 320 270 257" fill="none" stroke="#10b981" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrow)"/>
-  <text x="225" y="310" class="label" style="fill: #10b981;">Recovery</text>
+  <text x="225" y="310" class="label" style="fill: #10b981;">恢復</text>
 
   <!-- Key insight box -->
   <rect x="490" y="340" width="150" height="70" fill="#f0fdf4" stroke="#10b981" stroke-width="1" rx="2"/>
-  <text x="565" y="360" class="box-text-small" style="fill: #10b981;">Key Improvements</text>
-  <text x="500" y="378" class="condition" style="fill: #059669;">1. Add "Uncertain" buffer</text>
-  <text x="500" y="392" class="condition" style="fill: #059669;">2. Crisis from any state</text>
-  <text x="500" y="406" class="condition" style="fill: #059669;">3. Reduce false switches</text>
+  <text x="565" y="360" class="box-text-small" style="fill: #10b981;">主要改進</text>
+  <text x="500" y="378" class="condition" style="fill: #059669;">1. 加入 "Uncertain" 緩衝</text>
+  <text x="500" y="392" class="condition" style="fill: #059669;">2. 任何狀態可轉入 Crisis</text>
+  <text x="500" y="406" class="condition" style="fill: #059669;">3. 減少錯誤切換</text>
 
   <!-- Legend -->
   <g transform="translate(50, 370)">
     <line x1="0" y1="5" x2="25" y2="5" stroke="#666" stroke-width="1.5"/>
-    <text x="32" y="9" class="label" text-anchor="start">Normal Transition</text>
+    <text x="32" y="9" class="label" text-anchor="start">一般轉換</text>
 
     <line x1="0" y1="25" x2="25" y2="25" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,2"/>
-    <text x="32" y="29" class="label" text-anchor="start">Crisis Trigger</text>
+    <text x="32" y="29" class="label" text-anchor="start">Crisis 觸發</text>
 
     <line x1="0" y1="45" x2="25" y2="45" stroke="#10b981" stroke-width="1.5" stroke-dasharray="4,2"/>
-    <text x="32" y="49" class="label" text-anchor="start">Crisis Recovery</text>
+    <text x="32" y="49" class="label" text-anchor="start">Crisis 恢復</text>
   </g>
 </svg>

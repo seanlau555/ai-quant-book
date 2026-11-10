@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 500">
   <style>
-    .title { font: 600 14px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
-    .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
-    .box-text { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
-    .box-sub { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; }
-    .phase-label { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
-    .arrow-label { font: 400 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; }
-    .section-label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #fff; }
+    .title { font: 600 14px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #1a1a1a; }
+    .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #666; letter-spacing: 0.5px; }
+    .box-text { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #1a1a1a; }
+    .box-sub { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #666; }
+    .phase-label { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #1a1a1a; }
+    .arrow-label { font: 400 9px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #666; }
+    .section-label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #fff; }
   </style>
 
   <defs>
@@ -22,7 +22,7 @@
   <rect width="680" height="500" fill="#fff"/>
 
   <!-- Title -->
-  <text x="340" y="28" text-anchor="middle" class="title">Execution Simulation in Multi-Agent Architecture</text>
+  <text x="340" y="28" text-anchor="middle" class="title">Multi-Agent 架構中的 Execution 模擬</text>
   <text x="340" y="44" text-anchor="middle" class="subtitle">TRAINING AND PRODUCTION FEEDBACK LOOP</text>
 
   <!-- Main container -->
@@ -36,16 +36,16 @@
   <!-- Signal Agent -->
   <rect x="60" y="105" width="100" height="45" fill="#67e8f9" stroke="#1a1a1a" stroke-width="1.5"/>
   <text x="110" y="125" text-anchor="middle" class="box-text">Signal Agent</text>
-  <text x="110" y="140" text-anchor="middle" class="box-sub">Signal Generation</text>
+  <text x="110" y="140" text-anchor="middle" class="box-sub">信號生成</text>
 
   <!-- Arrow: Signal to Simulator -->
   <line x1="160" y1="127" x2="195" y2="127" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrowhead)"/>
-  <text x="177" y="120" text-anchor="middle" class="arrow-label">Raw Signal</text>
+  <text x="177" y="120" text-anchor="middle" class="arrow-label">原始信號</text>
 
   <!-- Execution Simulator -->
   <rect x="205" y="105" width="130" height="45" fill="#5eead4" stroke="#1a1a1a" stroke-width="1.5"/>
   <text x="270" y="125" text-anchor="middle" class="box-text">Execution Simulator</text>
-  <text x="270" y="140" text-anchor="middle" class="box-sub">Fills/Slippage/Partial fills</text>
+  <text x="270" y="140" text-anchor="middle" class="box-sub">成交/Slippage/部分成交</text>
 
   <!-- Arrow: Simulator to Cost -->
   <line x1="335" y1="127" x2="370" y2="127" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrowhead)"/>
@@ -53,7 +53,7 @@
   <!-- Cost Estimator -->
   <rect x="380" y="105" width="100" height="45" fill="#fde047" stroke="#1a1a1a" stroke-width="1.5"/>
   <text x="430" y="125" text-anchor="middle" class="box-text">Cost Estimator</text>
-  <text x="430" y="140" text-anchor="middle" class="box-sub">Net Return Calc</text>
+  <text x="430" y="140" text-anchor="middle" class="box-sub">淨收益計算</text>
 
   <!-- Arrow: Cost to RL -->
   <line x1="480" y1="127" x2="515" y2="127" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrowhead)"/>
@@ -61,12 +61,12 @@
   <!-- RL Agent -->
   <rect x="525" y="105" width="100" height="45" fill="#f9a8d4" stroke="#1a1a1a" stroke-width="1.5"/>
   <text x="575" y="125" text-anchor="middle" class="box-text">RL Agent</text>
-  <text x="575" y="140" text-anchor="middle" class="box-sub">Cost-Aware Policy</text>
+  <text x="575" y="140" text-anchor="middle" class="box-sub">成本感知策略</text>
 
   <!-- Training flow description -->
   <rect x="60" y="165" width="565" height="60" fill="#fff" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,2"/>
-  <text x="340" y="185" text-anchor="middle" class="box-sub">Training Flow: Signal → Simulated Execution → Calculate Net Return → Policy Learning</text>
-  <text x="340" y="205" text-anchor="middle" class="box-sub">Goal: Make Agent consider execution costs during training, avoid idealized assumptions</text>
+  <text x="340" y="185" text-anchor="middle" class="box-sub">訓練流程：Signal → 模擬 Execution → 計算淨收益 → 策略學習</text>
+  <text x="340" y="205" text-anchor="middle" class="box-sub">目標：讓 Agent 在訓練時考慮 execution 成本，避免理想化假設</text>
 
   <!-- Divider line -->
   <line x1="50" y1="250" x2="630" y2="250" stroke="#1a1a1a" stroke-width="2" stroke-dasharray="10,5"/>
@@ -79,15 +79,15 @@
   <!-- Execution Agent -->
   <rect x="60" y="300" width="100" height="45" fill="#f9a8d4" stroke="#1a1a1a" stroke-width="1.5"/>
   <text x="110" y="320" text-anchor="middle" class="box-text">Execution Agent</text>
-  <text x="110" y="335" text-anchor="middle" class="box-sub">Live Orders</text>
+  <text x="110" y="335" text-anchor="middle" class="box-sub">實盤訂單</text>
 
   <!-- Arrow to Live Log -->
   <line x1="160" y1="322" x2="195" y2="322" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrowhead)"/>
 
   <!-- Live Log -->
   <rect x="205" y="300" width="100" height="45" fill="#fde047" stroke="#1a1a1a" stroke-width="1.5"/>
-  <text x="255" y="320" text-anchor="middle" class="box-text">Live Log</text>
-  <text x="255" y="335" text-anchor="middle" class="box-sub">Collect Fill Data</text>
+  <text x="255" y="320" text-anchor="middle" class="box-text">實盤日誌</text>
+  <text x="255" y="335" text-anchor="middle" class="box-sub">收集成交數據</text>
 
   <!-- Arrow to Calibration -->
   <line x1="305" y1="322" x2="340" y2="322" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrowhead)"/>
@@ -95,7 +95,7 @@
   <!-- Calibration -->
   <rect x="350" y="300" width="100" height="45" fill="#5eead4" stroke="#1a1a1a" stroke-width="1.5"/>
   <text x="400" y="320" text-anchor="middle" class="box-text">Calibration</text>
-  <text x="400" y="335" text-anchor="middle" class="box-sub">Update Parameters</text>
+  <text x="400" y="335" text-anchor="middle" class="box-sub">更新參數</text>
 
   <!-- Feedback arrow (curved back to training) -->
   <path d="M450,322 L500,322 Q550,322 550,280 L550,170 Q550,130 500,130"
@@ -104,8 +104,8 @@
 
   <!-- Description in production -->
   <rect x="60" y="360" width="430" height="50" fill="#fff" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,2"/>
-  <text x="275" y="380" text-anchor="middle" class="box-sub">Live Flow: Real Trades → Record Fills → Calibrate Simulator</text>
-  <text x="275" y="395" text-anchor="middle" class="box-sub">Continuously update simulator parameters with live data, forming a closed loop</text>
+  <text x="275" y="380" text-anchor="middle" class="box-sub">實盤流程：真實交易 → 記錄成交 → 校準 Simulator</text>
+  <text x="275" y="395" text-anchor="middle" class="box-sub">以實盤數據持續更新 simulator 參數，形成閉環</text>
 
   <!-- Feedback label box -->
   <rect x="500" y="375" width="125" height="35" fill="#60a5fa" stroke="#1a1a1a" stroke-width="1" opacity="0.2"/>

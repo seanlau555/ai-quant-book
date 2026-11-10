@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 380">
   <style>
-    .title { font: 600 14px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
-    .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; letter-spacing: 0.5px; }
-    .box-text { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
-    .box-sub { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
-    .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; }
-    .warning { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #ef4444; }
-    .success { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #10b981; }
-    .section-label { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
+    .title { font: 600 14px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #1a1a1a; }
+    .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #666; letter-spacing: 0.5px; }
+    .box-text { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #1a1a1a; text-anchor: middle; }
+    .box-sub { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #666; text-anchor: middle; }
+    .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #666; }
+    .warning { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #ef4444; }
+    .success { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #10b981; }
+    .section-label { font: 600 11px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #1a1a1a; }
   </style>
 
   <defs>
@@ -20,34 +20,34 @@
   <rect width="680" height="380" fill="#fff"/>
 
   <!-- Title -->
-  <text x="340" y="28" text-anchor="middle" class="title">Single Agent vs Multi-Agent Architecture</text>
-  <text x="340" y="44" text-anchor="middle" class="subtitle">ARCHITECTURAL COMPARISON</text>
+  <text x="340" y="28" text-anchor="middle" class="title">Single Agent vs Multi-Agent 架構</text>
+  <text x="340" y="44" text-anchor="middle" class="subtitle">架構比較</text>
 
   <!-- Left Section: Single Agent -->
   <rect x="30" y="60" width="295" height="300" fill="#fce7f3" stroke="#1a1a1a" stroke-width="1" opacity="0.3"/>
-  <text x="178" y="80" text-anchor="middle" class="section-label">Single Agent Architecture</text>
+  <text x="178" y="80" text-anchor="middle" class="section-label">Single Agent 架構</text>
 
   <!-- Super Agent Box -->
   <rect x="50" y="105" width="255" height="120" fill="#f9a8d4" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
   <text x="178" y="130" class="box-text">Super Agent</text>
-  <text x="178" y="145" class="box-sub">MONOLITHIC DESIGN</text>
+  <text x="178" y="145" class="box-sub">單體式設計</text>
 
   <!-- Internal flow -->
   <rect x="65" y="160" width="225" height="50" fill="#fff" stroke="#1a1a1a" stroke-width="1" rx="2"/>
   <text x="178" y="180" text-anchor="middle" class="box-sub">Data → Features → Predict → Risk → Execute</text>
-  <text x="178" y="195" text-anchor="middle" class="box-sub" style="fill:#ef4444">Serial processing, one step blocks all</text>
+  <text x="178" y="195" text-anchor="middle" class="box-sub" style="fill:#ef4444">串行處理，一步卡住全部</text>
 
   <!-- Problems -->
   <rect x="50" y="240" width="255" height="105" fill="#fff" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,2" rx="2"/>
-  <text x="60" y="260" class="warning">✗ Cannot parallelize</text>
-  <text x="60" y="280" class="warning">✗ Single point of failure</text>
-  <text x="60" y="300" class="warning">✗ Cannot specialize</text>
-  <text x="60" y="320" class="warning">✗ Hard to debug</text>
-  <text x="60" y="340" class="warning">✗ Limited scalability</text>
+  <text x="60" y="260" class="warning">✗ 無法並行</text>
+  <text x="60" y="280" class="warning">✗ 單點故障</text>
+  <text x="60" y="300" class="warning">✗ 無法專門化</text>
+  <text x="60" y="320" class="warning">✗ 難以除錯</text>
+  <text x="60" y="340" class="warning">✗ 擴展性有限</text>
 
   <!-- Right Section: Multi-Agent -->
   <rect x="355" y="60" width="295" height="300" fill="#d1fae5" stroke="#1a1a1a" stroke-width="1" opacity="0.3"/>
-  <text x="503" y="80" text-anchor="middle" class="section-label">Multi-Agent Architecture</text>
+  <text x="503" y="80" text-anchor="middle" class="section-label">Multi-Agent 架構</text>
 
   <!-- Signal Agent -->
   <rect x="375" y="105" width="75" height="55" fill="#67e8f9" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
@@ -72,14 +72,14 @@
 
   <!-- Parallel indicator -->
   <line x1="375" y1="175" x2="630" y2="175" stroke="#10b981" stroke-width="2" stroke-dasharray="6,3"/>
-  <text x="503" y="193" text-anchor="middle" class="success">Parallel Execution + Fault Isolation</text>
-  <text x="503" y="207" text-anchor="middle" class="box-sub">MODULAR DESIGN</text>
+  <text x="503" y="193" text-anchor="middle" class="success">並行 Execution + 故障隔離</text>
+  <text x="503" y="207" text-anchor="middle" class="box-sub">模組化設計</text>
 
   <!-- Benefits -->
   <rect x="375" y="220" width="255" height="125" fill="#fff" stroke="#10b981" stroke-width="1.5" stroke-dasharray="4,2" rx="2"/>
-  <text x="385" y="243" class="success">✓ Parallel processing, faster</text>
-  <text x="385" y="263" class="success">✓ Fault isolation, controlled risk</text>
-  <text x="385" y="283" class="success">✓ Specialization, each excels</text>
-  <text x="385" y="303" class="success">✓ Independent debugging</text>
-  <text x="385" y="323" class="success">✓ Flexible scaling, fast iteration</text>
+  <text x="385" y="243" class="success">✓ 並行處理，更快</text>
+  <text x="385" y="263" class="success">✓ 故障隔離，風險可控</text>
+  <text x="385" y="283" class="success">✓ 專門化，各展所長</text>
+  <text x="385" y="303" class="success">✓ 獨立除錯</text>
+  <text x="385" y="323" class="success">✓ 靈活擴展，快速迭代</text>
 </svg>

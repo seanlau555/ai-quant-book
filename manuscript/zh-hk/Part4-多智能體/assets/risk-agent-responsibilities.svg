@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 480">
   <defs>
     <style>
-      .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; letter-spacing: 0.5px; }
-      .box-text { font: 600 14px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
-      .box-text-small { font: 500 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
-      .title { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; letter-spacing: 1px; }
-      .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
-      .detail { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; }
-      .principle { font: 600 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #ef4444; text-anchor: middle; }
+      .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #666; text-anchor: middle; letter-spacing: 0.5px; }
+      .box-text { font: 600 14px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #1a1a1a; text-anchor: middle; }
+      .box-text-small { font: 500 11px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #1a1a1a; text-anchor: middle; }
+      .title { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #1a1a1a; letter-spacing: 1px; }
+      .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #666; text-anchor: middle; }
+      .detail { font: 500 9px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #1a1a1a; }
+      .principle { font: 600 10px 'SF Mono', 'Menlo', 'Monaco', monospace, 'PingFang HK', 'Noto Sans HK'; fill: #ef4444; text-anchor: middle; }
     </style>
     <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
       <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
@@ -45,17 +45,17 @@
 
   <!-- Title -->
   <text x="340" y="28" class="title" text-anchor="middle">RISK AGENT RESPONSIBILITIES</text>
-  <text x="340" y="44" class="subtitle">Risk Agent Core Responsibilities</text>
+  <text x="340" y="44" class="subtitle">Risk Agent 核心職責</text>
 
   <!-- Central Risk Agent -->
   <rect x="225" y="175" width="230" height="110" fill="#fde047" stroke="#1a1a1a" stroke-width="2"/>
   <rect x="225" y="175" width="230" height="110" fill="url(#vertical-risk)"/>
   <text x="340" y="210" class="box-text">Risk Agent</text>
-  <text x="340" y="230" class="label">Risk Control Agent</text>
+  <text x="340" y="230" class="label">風險控制 Agent</text>
 
   <!-- Core principle box -->
   <rect x="245" y="242" width="190" height="35" fill="#fff" stroke="#ef4444" stroke-width="1.5" rx="2"/>
-  <text x="340" y="260" class="principle">Independent | Veto | Immutable</text>
+  <text x="340" y="260" class="principle">獨立 | 否決 | 不可變</text>
   <text x="340" y="273" class="label" style="fill: #ef4444;">INDEPENDENT | VETO | IMMUTABLE</text>
 
   <!-- Four Responsibilities around the center -->
@@ -63,50 +63,50 @@
   <!-- 1. Approval (top-left) -->
   <rect x="50" y="65" width="160" height="95" fill="#d1fae5" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
   <rect x="50" y="65" width="160" height="95" fill="url(#diagonal-approval)"/>
-  <text x="130" y="90" class="box-text">Pre-Trade</text>
-  <text x="130" y="108" class="label">PRE-TRADE APPROVAL</text>
+  <text x="130" y="90" class="box-text">交易前</text>
+  <text x="130" y="108" class="label">交易前審批</text>
   <line x1="60" y1="118" x2="200" y2="118" stroke="#ccc" stroke-width="1"/>
-  <text x="60" y="135" class="detail">- Check position limits</text>
-  <text x="60" y="150" class="detail">- Verify risk budget</text>
+  <text x="60" y="135" class="detail">- 檢查倉位上限</text>
+  <text x="60" y="150" class="detail">- 核實風險預算</text>
 
   <!-- Arrow from Approval to Risk Agent -->
   <path d="M 180 160 Q 220 175 225 200" fill="none" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
 
   <!-- Decision labels -->
   <rect x="60" y="160" width="100" height="18" fill="#d1fae5" stroke="#059669" stroke-width="1" rx="2"/>
-  <text x="110" y="172" class="label" style="fill: #059669;">Pass/Reduce/Reject</text>
+  <text x="110" y="172" class="label" style="fill: #059669;">通過/縮減/拒絕</text>
 
   <!-- 2. Monitoring (top-right) -->
   <rect x="470" y="65" width="160" height="95" fill="#a5f3fc" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
   <rect x="470" y="65" width="160" height="95" fill="url(#horizontal-monitor)"/>
-  <text x="550" y="90" class="box-text">Real-Time</text>
-  <text x="550" y="108" class="label">REAL-TIME MONITORING</text>
+  <text x="550" y="90" class="box-text">即時</text>
+  <text x="550" y="108" class="label">即時監控</text>
   <line x1="480" y1="118" x2="620" y2="118" stroke="#ccc" stroke-width="1"/>
-  <text x="480" y="135" class="detail">- Monitor position P&amp;L</text>
-  <text x="480" y="150" class="detail">- Trigger stop loss/profit</text>
+  <text x="480" y="135" class="detail">- 監控倉位 P&amp;L</text>
+  <text x="480" y="150" class="detail">- 觸發 stop loss/take profit</text>
 
   <!-- Arrow from Risk Agent to Monitoring -->
   <path d="M 455 200 Q 475 175 470 160" fill="none" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
 
   <!-- Alert indicator -->
   <rect x="540" y="160" width="80" height="18" fill="#fef3c7" stroke="#f59e0b" stroke-width="1" rx="2"/>
-  <text x="580" y="172" class="label" style="fill: #b45309;">Drawdown Alert</text>
+  <text x="580" y="172" class="label" style="fill: #b45309;">Drawdown 警報</text>
 
   <!-- 3. Attribution (bottom-left) -->
   <rect x="50" y="310" width="160" height="95" fill="#ede9fe" stroke="#1a1a1a" stroke-width="1.5" rx="2"/>
   <rect x="50" y="310" width="160" height="95" fill="url(#dots-attr)"/>
-  <text x="130" y="335" class="box-text">Post-Trade</text>
-  <text x="130" y="353" class="label">POST-TRADE ATTRIBUTION</text>
+  <text x="130" y="335" class="box-text">交易後</text>
+  <text x="130" y="353" class="label">交易後歸因</text>
   <line x1="60" y1="363" x2="200" y2="363" stroke="#ccc" stroke-width="1"/>
-  <text x="60" y="380" class="detail">- Record risk metrics</text>
-  <text x="60" y="395" class="detail">- Analyze drawdown causes</text>
+  <text x="60" y="380" class="detail">- 記錄風險指標</text>
+  <text x="60" y="395" class="detail">- 分析 drawdown 成因</text>
 
   <!-- Arrow from Risk Agent to Attribution -->
   <path d="M 225 260 Q 200 285 180 310" fill="none" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
 
   <!-- Analysis label -->
   <rect x="60" y="400" width="140" height="18" fill="#ede9fe" stroke="#7c3aed" stroke-width="1" rx="2"/>
-  <text x="130" y="412" class="label" style="fill: #6d28d9;">Single? Corr? Black Swan?</text>
+  <text x="130" y="412" class="label" style="fill: #6d28d9;">單一？相關？黑天鵝？</text>
 
   <!-- 4. Circuit-break (bottom-right) -->
   <rect x="470" y="310" width="160" height="95" fill="#fce7f3" stroke="#ef4444" stroke-width="2" rx="2"/>
@@ -114,20 +114,20 @@
   <text x="550" y="335" class="box-text">Circuit Breaker</text>
   <text x="550" y="353" class="label">CIRCUIT BREAKER</text>
   <line x1="480" y1="363" x2="620" y2="363" stroke="#ccc" stroke-width="1"/>
-  <text x="480" y="380" class="detail">- Trigger global de-risk</text>
-  <text x="480" y="395" class="detail">- Start cooling period</text>
+  <text x="480" y="380" class="detail">- 觸發全局降風險</text>
+  <text x="480" y="395" class="detail">- 啟動冷靜期</text>
 
   <!-- Arrow from Risk Agent to Circuit-break -->
   <path d="M 455 260 Q 480 285 500 310" fill="none" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
 
   <!-- Emergency indicator -->
   <rect x="520" y="400" width="90" height="18" fill="#fecaca" stroke="#dc2626" stroke-width="1" rx="2"/>
-  <text x="565" y="412" class="label" style="fill: #dc2626;">Notify All Agents</text>
+  <text x="565" y="412" class="label" style="fill: #dc2626;">通知所有 Agent</text>
 
   <!-- Connecting lines showing flow -->
   <!-- Workflow indicator at bottom -->
   <rect x="180" y="440" width="320" height="30" fill="#f9fafb" stroke="#ccc" stroke-width="1" rx="2"/>
-  <text x="340" y="460" class="label">Workflow: Pre-Trade -> Real-Time -> Post-Trade | Circuit Breaker Anytime</text>
+  <text x="340" y="460" class="label">流程：交易前 -> 即時 -> 交易後 | 熔斷隨時可觸發</text>
 
   <!-- Legend for patterns -->
   <g transform="translate(50, 440)">

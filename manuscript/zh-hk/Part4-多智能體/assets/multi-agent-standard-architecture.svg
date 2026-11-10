@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 520">
   <defs>
     <style>
-      .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; letter-spacing: 0.5px; }
-      .box-text { font: 600 13px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
-      .box-text-small { font: 500 11px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; text-anchor: middle; }
-      .title { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #1a1a1a; letter-spacing: 1px; }
-      .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', monospace; fill: #666; text-anchor: middle; }
+      .label { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', 'PingFang HK', 'Noto Sans HK', monospace; fill: #666; text-anchor: middle; letter-spacing: 0.5px; }
+      .box-text { font: 600 13px 'SF Mono', 'Menlo', 'Monaco', 'PingFang HK', 'Noto Sans HK', monospace; fill: #1a1a1a; text-anchor: middle; }
+      .box-text-small { font: 500 11px 'SF Mono', 'Menlo', 'Monaco', 'PingFang HK', 'Noto Sans HK', monospace; fill: #1a1a1a; text-anchor: middle; }
+      .title { font: 600 12px 'SF Mono', 'Menlo', 'Monaco', 'PingFang HK', 'Noto Sans HK', monospace; fill: #1a1a1a; letter-spacing: 1px; }
+      .subtitle { font: 500 10px 'SF Mono', 'Menlo', 'Monaco', 'PingFang HK', 'Noto Sans HK', monospace; fill: #666; text-anchor: middle; }
     </style>
     <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
       <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
@@ -52,13 +52,13 @@
 
   <!-- Title -->
   <text x="340" y="28" class="title" text-anchor="middle">MULTI-AGENT STANDARD ARCHITECTURE</text>
-  <text x="340" y="44" class="subtitle">Multi-Agent Standard Architecture</text>
+  <text x="340" y="44" class="subtitle">Multi-Agent 標準架構</text>
 
   <!-- Meta Agent - Top (with dots pattern) -->
   <rect x="140" y="60" width="400" height="65" fill="#a5f3fc" stroke="#1a1a1a" stroke-width="1.5"/>
   <rect x="140" y="60" width="400" height="65" fill="url(#dots)"/>
   <text x="340" y="90" class="box-text">Meta Agent</text>
-  <text x="340" y="108" class="label">Regime Detection + Task Routing + Arbitration + Global Monitoring</text>
+  <text x="340" y="108" class="label">Regime 偵測 + 任務路由 + 仲裁 + 全域監控</text>
   <text x="340" y="120" class="label" style="fill: #999;">REGIME DETECTION + TASK ROUTING + ARBITRATION</text>
 
   <!-- Arrow down from Meta -->
@@ -69,19 +69,19 @@
   <rect x="70" y="170" width="150" height="70" fill="#5eead4" stroke="#1a1a1a" stroke-width="1.5"/>
   <rect x="70" y="170" width="150" height="70" fill="url(#diagonal-right)"/>
   <text x="145" y="200" class="box-text">Signal Agent</text>
-  <text x="145" y="220" class="label">Signal Generation</text>
+  <text x="145" y="220" class="label">Signal 生成</text>
 
   <!-- Regime Agent - Cyan with horizontal lines -->
   <rect x="265" y="170" width="150" height="70" fill="#67e8f9" stroke="#1a1a1a" stroke-width="1.5"/>
   <rect x="265" y="170" width="150" height="70" fill="url(#horizontal)"/>
   <text x="340" y="200" class="box-text">Regime Agent</text>
-  <text x="340" y="220" class="label">Market Regime Detection</text>
+  <text x="340" y="220" class="label">市場 Regime 偵測</text>
 
   <!-- Position Agent - Pink with crosshatch -->
   <rect x="460" y="170" width="150" height="70" fill="#f9a8d4" stroke="#1a1a1a" stroke-width="1.5"/>
   <rect x="460" y="170" width="150" height="70" fill="url(#crosshatch)"/>
   <text x="535" y="200" class="box-text">Position Agent</text>
-  <text x="535" y="220" class="label">Position Management</text>
+  <text x="535" y="220" class="label">倉位管理</text>
 
   <!-- Branching arrows from Meta to Functional Agents -->
   <line x1="200" y1="155" x2="145" y2="170" stroke="#666" stroke-width="1.5"/>
@@ -101,7 +101,7 @@
   <rect x="140" y="320" width="400" height="75" fill="#fde047" stroke="#1a1a1a" stroke-width="2"/>
   <rect x="140" y="320" width="400" height="75" fill="url(#vertical)"/>
   <text x="340" y="350" class="box-text">Risk Agent</text>
-  <text x="340" y="368" class="label">Order Review + Forced Stop Loss + Risk Budget Management</text>
+  <text x="340" y="368" class="label">訂單審查 + 強制 stop loss + 風險預算管理</text>
   <text x="340" y="382" class="label" style="fill: #999;">ORDER REVIEW + STOP LOSS + RISK BUDGET</text>
 
   <!-- Veto Power indicator -->
@@ -119,7 +119,7 @@
   <rect x="190" y="435" width="300" height="60" fill="#d1fae5" stroke="#1a1a1a" stroke-width="1.5"/>
   <rect x="190" y="435" width="300" height="60" fill="url(#grid)"/>
   <text x="340" y="462" class="box-text">Execution Agent</text>
-  <text x="340" y="480" class="label">Optimal Execution + Order Management / OPTIMAL EXECUTION</text>
+  <text x="340" y="480" class="label">最優 Execution + 訂單管理 / OPTIMAL EXECUTION</text>
 
   <!-- Legend for patterns -->
   <g transform="translate(60, 505)">
